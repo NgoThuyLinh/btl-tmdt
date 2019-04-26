@@ -1,0 +1,126 @@
+<?php 
+ ?>
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<title>Divisima | Chi nhánh <?=$_SESSION['branch_id']?></title>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="description" content=" Divisima | eCommerce Template">
+	<meta name="keywords" content="divisima, eCommerce, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->
+	<link href="publics/img/favicon.ico" rel="shortcut icon"/>
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="publics/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="publics/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="publics/css/flaticon.css"/>
+	<link rel="stylesheet" href="publics/css/slicknav.min.css"/>
+	<link rel="stylesheet" href="publics/css/jquery-ui.min.css"/>
+	<link rel="stylesheet" href="publics/css/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="publics/css/animate.css"/>
+	<link rel="stylesheet" href="publics/css/style.css"/>
+	<style type="text/css" media="screen">
+		body{
+			font-family: Arial;
+		}
+	</style>
+
+
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2 text-center text-lg-left">
+						<!-- logo -->
+						<a href="?mod=home&act=home" class="site-logo">
+							<img src="publics/img/logo.png" alt="">
+						</a>
+					</div>
+					<div class="col-xl-6 col-lg-5">
+						<form class="header-search-form">
+							<input type="text" placeholder="Search on divisima ....">
+							<button><i class="flaticon-search"></i></button>
+						</form>
+					</div>
+					<div class="col-xl-4 col-lg-5">
+						<div class="user-panel">
+							<div class="up-item">
+								<?php if(!isset($_SESSION['user'])) { ?>
+									<i class="flaticon-profile"></i>
+									<a href="?mod=home&act=loginform">Sign In Create Account</a>
+								<?php } else{ ?>
+									<p><?= $_SESSION['user'][0]->name?></p>
+								<?php } ?>
+							</div>
+							<div class="up-item">
+								<div class="shopping-card">
+									<i class="flaticon-bag"></i>
+									<?php 
+										$count = 0;
+										if (isset($_SESSION['cart'])) {
+											$count = count($_SESSION['cart']);
+									} ?>
+									<span><?= $count?></span>
+								</div>
+								<a href="?mod=cart">Shopping Cart</a>
+							</div>
+							<?php if(isset($_SESSION['user'])) { ?>
+								<div class="up-item" style="margin-left: 20px;cursor: pointer;"><i class="fab fa-accusoft"></i><a href="?mod=home&act=logout">Logout</a></div>
+							<?php } ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="main-navbar">
+			<div class="container">
+				<!-- menu -->
+				<ul class="main-menu">
+					<li><a href="?mod=home&act=home">Home</a></li>
+					
+					<li><a href="#">Category</a>
+						<ul class="sub-menu">
+							<?php if (isset($cats)) {
+								foreach ($cats as $key => $value) {
+									# code...
+							?>
+							<li><a href="?mod=category&act=category&categoryId=<?=$value->category_id?>"><?=$value->name?></a></li>
+							<?php }} ?>
+							
+						</ul>
+					</li>
+					<li><a href="#">Pages</a>
+						<ul class="sub-menu">
+							<li><a href="?mod=product&act=productdetail&productCode=SHIRT-00001">Product Page</a></li>
+							<li><a href="?mod=category&act=category&categoryId=11">Category Page</a></li>
+							<li><a href="?mod=cart">Cart Page</a></li>
+							<li><a href="?mod=order&act=checkout">Checkout Page</a></li>
+							
+						</ul>
+					</li>
+					<li><a href="?mod=home&act=contact">Contact Page</a></li>
+					<li><a href="#">Blog</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- Header section end -->
