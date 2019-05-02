@@ -103,6 +103,8 @@
 						<h3>Your Cart</h3>
 						<ul class="product-list">
 							<?php if (isset($_SESSION['cart'])) {
+								$sum=0;
+								
 								foreach ($_SESSION['cart'] as $value) {
 									$product_code = $value['product_code'];
 							?>
@@ -113,14 +115,15 @@
 								<p><?= $orderdetails[$product_code]->price * $value['quantity_buy'] ?> đ</p>
 							</li>
 							<?php
+									$sum+=$orderdetails[$product_code]->price * $value['quantity_buy'];
 									}
 								}
 							?>
 						</ul>
 						<ul class="price-list">
-							<li>Total<span>300.000 đ</span></li>
+							<li>Total<span><?=$sum?> đ</span></li>
 							<li>Shipping<span>free</span></li>
-							<li class="total">Total<span>300.000 đ</span></li>
+							<li class="total">Total<span> <?=$sum?>đ</span></li>
 						</ul>
 					</div>
 				</div>

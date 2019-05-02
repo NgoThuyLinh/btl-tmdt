@@ -58,7 +58,7 @@
 										
 									
 							 ?>
-								<img src="<?=$k->image?>" alt="" title="<?=$value->code?>" width = "270px" height = "270px">
+								<img src="<?=$k->image?>" alt="" title="<?=$k->code?>" width = "270px" height = "270px">
 							<?php break;}} ?>
 							<div class="pi-links">
 								<a href="?mod=product&act=productdetail&productCode=<?=$value->code?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
