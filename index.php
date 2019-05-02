@@ -12,17 +12,12 @@
 	}
 	switch ($mod) {
 		case 'home':
-			include_once('models/Branch.php');
 			include_once('controllers/HomeController.php');
 			$home= new HomeController();
 			switch ($act) {
 				case 'home':
 					$home->home();
 					break;
-				case 'selected':
-					$home->selected();
-					break;
-				
 				case 'find':
 					$home->find();
 					break;
@@ -38,7 +33,7 @@
 					break;
 				
 				default:
-					$home->selected();
+					$home->home();
 					break;
 			}
 			break;

@@ -4,7 +4,6 @@
 	require_once "models/Category.php";
 	require_once "models/Size.php";
 	require_once "models/Color.php";
-	require_once "models/Producer.php";
 	
 	class CategoryController
 	{
@@ -19,7 +18,6 @@
 			$this->products_model= new Product();
 			$this->sizes_model= new Size();
 			$this->colors_model= new Color();
-			$this->producers_model= new Producer();
 			$this->cats_model= new Category();
 		}
 		
@@ -29,9 +27,7 @@
 			$cats=$this->cats_model->list();
 			$colors= $this->colors_model->list();
 			$sizes= $this->sizes_model->list();
-			$producers= $this->producers_model->list();
 			$cats=json_decode($cats);
-			$producers=json_decode($producers);
 			$colors=json_decode($colors);
 			$sizes=json_decode($sizes);
 			$products=json_decode($products);

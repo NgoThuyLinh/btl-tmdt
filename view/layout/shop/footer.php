@@ -102,14 +102,14 @@
 
 
 	<!--====== Javascripts & Jquery ======-->
-	<script src="publics/js/jquery-3.2.1.min.js"></script>
-	<script src="publics/js/bootstrap.min.js"></script>
-	<script src="publics/js/jquery.slicknav.min.js"></script>
-	<script src="publics/js/owl.carousel.min.js"></script>
-	<script src="publics/js/jquery.nicescroll.min.js"></script>
-	<script src="publics/js/jquery.zoom.min.js"></script>
-	<script src="publics/js/jquery-ui.min.js"></script>
-	<script src="publics/js/main.js"></script>
+	<script src="public/js/jquery-3.2.1.min.js"></script>
+	<script src="public/js/bootstrap.min.js"></script>
+	<script src="public/js/jquery.slicknav.min.js"></script>
+	<script src="public/js/owl.carousel.min.js"></script>
+	<script src="public/js/jquery.nicescroll.min.js"></script>
+	<script src="public/js/jquery.zoom.min.js"></script>
+	<script src="public/js/jquery-ui.min.js"></script>
+	<script src="public/js/main.js"></script>
 
 	</body>
 </html>

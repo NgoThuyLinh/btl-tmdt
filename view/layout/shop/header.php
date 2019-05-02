@@ -3,28 +3,28 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-	<title>Divisima | Chi nhánh <?=$_SESSION['branch_id']?></title>
+	<title>Divisima</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="description" content=" Divisima | eCommerce Template">
 	<meta name="keywords" content="divisima, eCommerce, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Favicon -->
-	<link href="publics/img/favicon.ico" rel="shortcut icon"/>
+	<link href="public/img/favicon.ico" rel="shortcut icon"/>
 
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
 
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="publics/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="publics/css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="publics/css/flaticon.css"/>
-	<link rel="stylesheet" href="publics/css/slicknav.min.css"/>
-	<link rel="stylesheet" href="publics/css/jquery-ui.min.css"/>
-	<link rel="stylesheet" href="publics/css/owl.carousel.min.css"/>
-	<link rel="stylesheet" href="publics/css/animate.css"/>
-	<link rel="stylesheet" href="publics/css/style.css"/>
+	<link rel="stylesheet" href="public/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="public/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="public/css/flaticon.css"/>
+	<link rel="stylesheet" href="public/css/slicknav.min.css"/>
+	<link rel="stylesheet" href="public/css/jquery-ui.min.css"/>
+	<link rel="stylesheet" href="public/css/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="public/css/animate.css"/>
+	<link rel="stylesheet" href="public/css/style.css"/>
 	<style type="text/css" media="screen">
 		body{
 			font-family: Arial;
@@ -52,7 +52,7 @@
 					<div class="col-lg-2 text-center text-lg-left">
 						<!-- logo -->
 						<a href="?mod=home&act=home" class="site-logo">
-							<img src="publics/img/logo.png" alt="">
+							<img src="public/img/logo.png" alt="">
 						</a>
 					</div>
 					<div class="col-xl-6 col-lg-5">
@@ -95,30 +95,32 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="?mod=home&act=home">Home</a></li>
-					
-					<li><a href="#">Category</a>
-						<ul class="sub-menu">
-							<?php if (isset($cats)) {
-								foreach ($cats as $key => $value) {
-									# code...
-							?>
-							<li><a href="?mod=category&act=category&categoryId=<?=$value->category_id?>"><?=$value->name?></a></li>
-							<?php }} ?>
+					<li><a href="?">Trang chủ</a></li>
+					<?php if (isset($cats)) {
+						foreach ($cats as $key => $value) {
+							if ($value->parent_id==null) {
 							
-						</ul>
-					</li>
-					<li><a href="#">Pages</a>
-						<ul class="sub-menu">
-							<li><a href="?mod=product&act=productdetail&productCode=SHIRT-00001">Product Page</a></li>
-							<li><a href="?mod=category&act=category&categoryId=11">Category Page</a></li>
-							<li><a href="?mod=cart">Cart Page</a></li>
-							<li><a href="?mod=order&act=checkout">Checkout Page</a></li>
-							
-						</ul>
-					</li>
-					<li><a href="?mod=home&act=contact">Contact Page</a></li>
-					<li><a href="#">Blog</a></li>
+					?>
+					<li><a href="?mod=category&act=category&categoryId=<?=$value->id?>"><?=$value->name?></a>
+						
+					<?php 
+							}
+							echo "<ul class='sub-menu'>";
+							foreach ($cats as $k) {
+								if ($k->parent_id==$value->id) {
+									
+					?>
+						<li><a href="?mod=category&act=category&categoryId=<?=$value->id?>"><?=$k->name?></a></li>
+						
+					<?php
+								}
+							}
+						echo "</ul></li>";
+						}
+
+					}?>
+					<li><a href="?mod=contact">Liên hệ</a></li>
+					<li><a href="?mod=blog">Tin tức</a></li>
 				</ul>
 			</div>
 		</nav>

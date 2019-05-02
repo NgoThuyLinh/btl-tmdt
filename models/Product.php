@@ -10,15 +10,37 @@
 		}
 		function list()
 		{
-			$query="SELECT * FROM products";
-			$stmt= sqlsrv_query($this->conn, $query);
+			$query="SELECT * FROM products LIMIT 10";
+			$stmt= mysqli_query($this->conn, $query);
 			do {
-			    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+			    while ($row = mysqli_fetch_assoc($stmt)){
 			       $cats[] = $row; 
 			    }
-			} while (sqlsrv_next_result($stmt));
-			 sqlsrv_free_stmt($stmt);
+			} while (mysqli_next_result($this->conn));
+			 // sqlsrv_free_stmt($stmt);
 			return json_encode(($cats));	
+		}
+		function list_top(){
+			$query="select DISTINCT products.id,products.name, products.price,category_id,description from products, product_details,(select product_detail_id,count(quantity) as quantity from order_detail GROUP BY product_detail_id ORDER BY quantity) as order_detail WHERE  products.id= product_details.product_id AND product_details.id= order_detail.product_detail_id LIMIT 10";
+			$stmt= mysqli_query($this->conn, $query);
+			do {
+			    while ($row = mysqli_fetch_assoc($stmt)){
+			       $cats[] = $row; 
+			    }
+			} while (mysqli_next_result($this->conn));
+			 // sqlsrv_free_stmt($stmt);
+			return json_encode(($cats));
+		}
+		function list_new(){
+			$query="SELECT * FROM products ORDER BY created_at  LIMIT 8";
+			$stmt= mysqli_query($this->conn, $query);
+			do {
+			    while ($row = mysqli_fetch_assoc($stmt)){
+			       $cats[] = $row; 
+			    }
+			} while (mysqli_next_result($this->conn));
+			 // sqlsrv_free_stmt($stmt);
+			return json_encode(($cats));
 		}
 		function find($code){
 			$query="SELECT * FROM products WHERE product_code= '".$code."'";

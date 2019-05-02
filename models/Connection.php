@@ -5,13 +5,16 @@
 		var $conn;
 		function __construct()
 		{
-			$serverName = "NDMINH";
-			$connectionInfo = array( "Database"=>"ShopServer", "UID"=>"sa", "PWD"=>"123456","CharacterSet" => "UTF-8");
-			
-			$this->conn= sqlsrv_connect( $serverName, $connectionInfo);
+			$servername="localhost";
+			$username="root";
+			$password="";
+			$dbname="tmdt-shop";
+			$this->conn= mysqli_connect($servername,$username,$password,$dbname);
+			$this->conn->set_charset('utf8');
 			if (!$this->conn) {
-				 die( print_r( sqlsrv_errors(), true));
+				die("Connection failed: " .mysqli_connect_error());
 			}
+			
 		}
 	}
 

@@ -4,7 +4,6 @@
 	require_once "models/Category.php";
 	require_once "models/Size.php";
 	require_once "models/Color.php";
-	require_once "models/Producer.php";
 	
 	class ProductController
 	{
@@ -19,7 +18,6 @@
 			$this->products_model= new Product();
 			$this->sizes_model= new Size();
 			$this->colors_model= new Color();
-			$this->producers_model= new Producer();
 			$this->cats_model= new Category();
 		}
 		

@@ -92,6 +92,7 @@ ol {
 
 .section-title h2 {
 	font-size: 36px;
+	color: #ff0c87;
 }
 
 .set-bg {
@@ -840,7 +841,9 @@ ol {
 	min-width: 65px;
 	background: #f51167;
 }
-
+.product-item .pi-pic:hover .product-item .pi-text p{
+	color: red
+}
 .product-item .pi-links {
 	width: 100%;
 	position: absolute;
@@ -909,6 +912,17 @@ ol {
 	height: 87px;
 }
 
+.product-item .pi-text h5 {
+	text-align: center;
+	overflow: hidden;
+	font-weight: 700;
+	color: #111111;
+}
+.product-item .pi-text {
+	padding-top: 22px;
+	height: 87px;
+}
+
 .product-item .pi-text h6 {
 	float: right;
 	padding-left: 40px;
@@ -917,11 +931,6 @@ ol {
 	color: #111111;
 }
 
-.product-item .pi-text p {
-	font-size: 16px;
-	color: #111111;
-	margin-bottom: 0;
-}
 
 /* -----------------------
   Product filter section

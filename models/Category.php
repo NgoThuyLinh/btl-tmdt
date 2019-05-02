@@ -27,14 +27,14 @@
 		function list(){
 			$query="SELECT * FROM categories";
 			$cats= array();
-			$stmt= sqlsrv_query($this->conn, $query);
+			$stmt= mysqli_query($this->conn, $query);
 
 			do {
-			    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+			    while ($row = mysqli_fetch_assoc($stmt)){
 			       $cats[] = $row; 
 			    }
-			} while (sqlsrv_next_result($stmt));
-			 sqlsrv_free_stmt($stmt);
+			} while (mysqli_next_result($this->conn));
+			 // sqlsrv_free_stmt($stmt);
 
 			return json_encode($cats);
 		}

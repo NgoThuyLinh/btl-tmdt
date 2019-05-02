@@ -2,7 +2,7 @@
 	/**
 	 * 
 	 */
-	class Color 
+	class Image 
 	{
 		
 		var $conn;
@@ -11,7 +11,24 @@
 			$this->conn=$object->conn;
 		}
 		function list(){
-			$query="SELECT * FROM colors";
+			$query="SELECT * FROM product_images ";
+			$cats= array();
+			$stmt= mysqli_query($this->conn, $query);
+
+			do {
+			    while ($row = mysqli_fetch_array($stmt)){
+			       $cats[] = $row; 
+			    }
+			} while (mysqli_next_result($this->conn));
+			 // sqlsrv_free_stmt($stmt);
+
+			
+
+			return json_encode($cats);
+		}
+		function slider(){
+			
+			$query="SELECT * FROM sliders ";
 			$cats= array();
 			$stmt= mysqli_query($this->conn, $query);
 

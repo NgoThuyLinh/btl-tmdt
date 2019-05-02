@@ -12,27 +12,27 @@
 		function list(){
 			$query="SELECT * FROM sizes";
 			$cats= array();
-			$stmt= sqlsrv_query($this->conn, $query);
+			$stmt= mysqli_query($this->conn, $query);
 
 			do {
-			    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+			    while ($row = mysqli_fetch_array($stmt)){
 			       $cats[] = $row; 
 			    }
-			} while (sqlsrv_next_result($stmt));
-			 sqlsrv_free_stmt($stmt);
+			} while (mysqli_next_result($this->conn));
+			 mysqli_free_stmt($stmt);
 			return json_encode($cats);
 		}
 		function size_product_detail($code){
-			$sql="SELECT DISTINCT size_id, sizes.name as size FROM [NDMinh].[ShopServer].[dbo].product_details as product_detail, sizes,products WHERE size_id= sizes.id AND product_detail.product_id= products.product_id AND quantity > 0 AND products.product_code='".$code."'AND branch_id=".$_SESSION['branch_id'];
+			$sql="SELECT DISTINCT size_id, sizes.name as size FROM product_details as product_detail, sizes,products WHERE size_id= sizes.id AND product_detail.product_id= products.product_id AND quantity > 0 AND products.product_code='".$code;
 			$cats= array();
-			$stmt= sqlsrv_query($this->conn, $sql);
+			$stmt= mysqli_query($this->conn, $sql);
 
 			do {
-			    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+			    while ($row = mysqli_fetch_array($stmt)){
 			       $cats[] = $row; 
 			    }
-			} while (sqlsrv_next_result($stmt));
-			 sqlsrv_free_stmt($stmt);
+			} while (mysqli_next_result($this->conn));
+			 mysqli_free_stmt($stmt);
 
 			
 
