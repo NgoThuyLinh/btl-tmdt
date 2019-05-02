@@ -7,7 +7,7 @@
 		<div class="container">
 			<h4>Category PAge</h4>
 			<div class="site-pagination">
-				<a href="">Home</a> /
+				<a href="">Trang chủ</a> /
 				<a href="">Shop</a>
 			</div>
 		</div>
@@ -17,12 +17,19 @@
 	<section class="product-section">
 		<div class="container">
 			<div class="back-link">
-				<a href="?mod=category&categoryId=1"> &lt;&lt; Back to Category</a>
+				<a href="?mod=category&categoryId=1"> &lt;&lt; Trở lại danh mục</a>
 			</div>
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="product-pic-zoom">
-						<img src="http://192.168.43.210:8080/img/<?=$product[0]->img?>" alt="" width = "100%" height = "600px" >
+						<?php 
+							foreach ($imgs as $k) {
+								if ($k->product_id== $product[0]->id) {
+									
+								
+						 ?>
+						<img src="<?=$k->image?>" alt="" width = "100%" height = "600px" >
+						<?php break;}} ?>
 					</div>
 					<!-- <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
 						<div class="product-thumbs-track">
@@ -46,25 +53,9 @@
 						<i class="fa fa-star-o fa-fade"></i>
 					</div>
 					<div class="p-review">
-						<a href="">3 reviews</a>|<a href="">Add your review</a>
+						<a href="">3 đánh giá</a>|<a href="">Thêm đánh giá sản phẩm</a>
 					</div>
 					<form action="?mod=order&product_code=<?=$_GET['productCode']?>" method="POST" accept-charset="utf-8">
-						<div class="fw-size-choose">
-							<p>Size</p>
-							<?php 
-								if (isset($sizes)) {
-									foreach ($sizes as $key => $value) {	
-							 ?>
-							<div class="sc-item">
-								<input type="radio" name="size_id" id="<?=$value->size?>-size" value="<?=$value->size_id?>">
-								<label for="<?=$value->size?>-size"><?=$value->size?></label>
-							</div>
-							<?php 
-									}
-								}
-							 ?>
-							
-						</div>
 						<div class="fw-color-choose">
 							<p>Color</p>
 							<?php 
@@ -83,11 +74,28 @@
 							 ?>
 							
 						</div>
+						<div class="fw-size-choose">
+							<p>Size</p>
+							<?php 
+								if (isset($sizes)) {
+									foreach ($sizes as $key => $value) {	
+							 ?>
+							<div class="sc-item">
+								<input type="radio" name="size_id" id="<?=$value->size?>-size" value="<?=$value->size_id?>">
+								<label for="<?=$value->size?>-size"><?=$value->size?></label>
+							</div>
+							<?php 
+									}
+								}
+							 ?>
+							
+						</div>
+						
 						<div class="quantity">
 							<p>Quantity</p>
 	                        <div class="pro-qty"><input type="text" value="1" name="quantity_buy"></div>
 	                    </div>
-						<button type="submit" class="site-btn" name="order">SHOP NOW</button>
+						<button type="submit" class="site-btn" name="order">Mua hàng</button>
 					</form>
 					
 					<div id="accordion" class="accordion-area">

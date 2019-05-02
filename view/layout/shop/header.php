@@ -57,7 +57,7 @@
 					</div>
 					<div class="col-xl-6 col-lg-5">
 						<form class="header-search-form">
-							<input type="text" placeholder="Search on divisima ....">
+							<input type="text" placeholder="Tìm kiếm ....">
 							<button><i class="flaticon-search"></i></button>
 						</form>
 					</div>
@@ -66,7 +66,7 @@
 							<div class="up-item">
 								<?php if(!isset($_SESSION['user'])) { ?>
 									<i class="flaticon-profile"></i>
-									<a href="?mod=home&act=loginform">Sign In Create Account</a>
+									<a href="?mod=home&act=loginform">Đăng nhập</a>
 								<?php } else{ ?>
 									<p><?= $_SESSION['user'][0]->name?></p>
 								<?php } ?>
@@ -81,7 +81,7 @@
 									} ?>
 									<span><?= $count?></span>
 								</div>
-								<a href="?mod=cart">Shopping Cart</a>
+								<a href="?mod=cart">Giỏ hàng</a>
 							</div>
 							<?php if(isset($_SESSION['user'])) { ?>
 								<div class="up-item" style="margin-left: 20px;cursor: pointer;"><i class="fab fa-accusoft"></i><a href="?mod=home&act=logout">Logout</a></div>

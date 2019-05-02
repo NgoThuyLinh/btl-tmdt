@@ -841,6 +841,9 @@ ol {
 	min-width: 65px;
 	background: #f51167;
 }
+.product-item .pi-pic:hover img{
+	
+}
 .product-item .pi-pic:hover .product-item .pi-text p{
 	color: red
 }
@@ -1394,8 +1397,7 @@ ol {
 	float: right;
 }
 
-.fw-color-choose,
-.fw-size-choose {
+ .fw-size-choose{
 	border-bottom: 2px solid #ebebeb;
 	padding-bottom: 40px;
 	margin-bottom: 50px;
@@ -1606,7 +1608,7 @@ ol {
 	padding-bottom: 0;
 }
 
-.product-details .fw-size-choose p {
+.product-details .fw-size-choose p, .product-details .fw-color-choose p {
 	float: left;
 	margin-right: 38px;
 	text-transform: uppercase;
