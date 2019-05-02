@@ -33,21 +33,22 @@
 								</tr>
 							</thead>
 							<tbody>
-									<?php if (isset($_SESSION['cart'])) {
+									<?php 
+										$sum=0;
+									if (isset($_SESSION['cart'])) {
 										foreach ($_SESSION['cart'] as $value) {
 											$product_code = $value['product_code'];
 									?>
 								<tr>
 									<td class="product-col">
-										<img src="http://192.168.43.210:8080/img/<?= $orderdetails[$product_code]->img ?>" alt="">
+										<img src="<?=$value['image']?>" alt="">
 										<div class="pc-title">
 											<h4><?= $orderdetails[$product_code]->name ?></h4>
-											<p><?= $orderdetails[$product_code]->price ?> đ</p>
 										</div>
 									</td>
 									
-									<td class="size-col"><h4>Size <?= $orderdetails[$product_code]->size_name ?></h4></td>
-									<td class="size-col"><h4>Color <?= $orderdetails[$product_code]->color_name ?></h4></td>
+									<td class="size-col"><h4><?= $orderdetails[$product_code]->size_name ?></h4></td>
+									<td class="color-col"><h4 style="background: <?= $orderdetails[$product_code]->color_name ?>"></h4></td>
 									<td class="quy-col">
 										<div class="quantity">
 					                        <!-- <div class="pro-qty"> -->
@@ -58,6 +59,7 @@
 									<td class="total-col"><h4><?= $orderdetails[$product_code]->price * $value['quantity_buy'] ?> đ</h4></td>
 								</tr>
 									<?php
+										$sum+=$orderdetails[$product_code]->price * $value['quantity_buy'];
 											}
 										}
 									?>
@@ -66,7 +68,7 @@
 						</table>
 						</div>
 						<div class="total-cost">
-							<h6>Total <span>300.000 đ</span></h6>
+							<h6>Total <span><?=$sum?> đ</span></h6>
 						</div>
 					</div>
 				</div>

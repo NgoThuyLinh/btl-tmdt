@@ -19,23 +19,18 @@
 			       $cats[] = $row; 
 			    }
 			} while (mysqli_next_result($this->conn));
-			 mysqli_free_stmt($stmt);
 			return json_encode($cats);
 		}
 		function size_product_detail($code){
-			$sql="SELECT DISTINCT size_id, sizes.name as size FROM product_details as product_detail, sizes,products WHERE size_id= sizes.id AND product_detail.product_id= products.product_id AND quantity > 0 AND products.product_code='".$code;
+			$sql="SELECT DISTINCT size_id, sizes.name as size FROM product_details as product_detail, sizes,products WHERE size_id= sizes.id AND product_detail.product_id= products.id AND quantity > 0 AND products.code='".$code."'";
 			$cats= array();
 			$stmt= mysqli_query($this->conn, $sql);
 
-			do {
-			    while ($row = mysqli_fetch_array($stmt)){
+			if ($stmt->num_rows>0) {
+				while ($row = mysqli_fetch_array($stmt)){
 			       $cats[] = $row; 
 			    }
-			} while (mysqli_next_result($this->conn));
-			 mysqli_free_stmt($stmt);
-
-			
-
+			}
 			return json_encode($cats);
 		}
 		

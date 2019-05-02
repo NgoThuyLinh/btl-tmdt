@@ -6,6 +6,8 @@
 	require_once "models/Color.php";
 	require_once "models/ProductDetail.php";
 	require_once "models/Order.php";
+	require_once "models/Image.php";
+	require_once "models/Address.php";
 	
 	class CartController
 	{
@@ -16,6 +18,8 @@
 		var $producers_model;
 		var $productdetail_model;
 		var $order_model;
+		var $img_model;
+		var $add_model;
 
 		function __construct()
 		{
@@ -25,6 +29,8 @@
 			$this->productdetail_model= new ProductDetail();
 			$this->cats_model= new Category();
 			$this->order_model= new Order();
+			$this->img_model= new Image();
+			$this->add_model= new Address();
 		}
 		
 		function listcart(){
@@ -70,8 +76,12 @@
 
 		}
 		function buy(){
+			var_dump($_POST);
+			if (!isset($_POST['customer_id'])) {
+				$data=array('customer_id'=>null,'customer_name'=>$_POST['customer_name'], 'customer_address'=>$_POST['customer_address'], 'customer_phone'=>$_POST['customer_phone'],'description'=>$_POST['description'], 'city_id'=>$_POST['city_id'],'description'=>$_POST['description'], 'village_id'=>$_POST['village_id'],'customer_email'=>$_POST['customer_email'],'district_id'=>$_POST['district_id']);
+			}
 			
-			$data=array('customer_id'=>$_POST['customer_id'], 'address_receive'=>$_POST['address_receive'], 'phone_receive'=>$_POST['phone_receive'],'delivery'=>$_POST['delivery']);
+			var_dump($data);
 			$result=$this->order_model->createOrder($data);
 			if ($result) {
 				unset($_SESSION['cart']);
@@ -81,19 +91,25 @@
 			}
 		}
 		function checkout(){
-			if (isset($_SESSION['user'])) {
+			// if (isset($_SESSION['user'])) {
 				$cats= $this->cats_model->list();
+				$add= $this->add_model->address();
 				$cats= json_decode($cats);
+				$data= json_decode($add);
 				if (isset($_SESSION['cart'])) {
 					foreach ($_SESSION['cart'] as $key => $value) {
 						$result=$this->order_model->listproductcart($value);
 						$orderdetails[$value['product_code']]=json_decode($result);
 					}
 				}
+
+				// var_dump($data->city);die();
+
+		
 				require_once('view/pages/shop/checkout.php');
-			}else{
-				header("location: ?mod=home&act=loginform");
-			}
+			// }else{
+			// 	header("location: ?mod=home&act=loginform");
+			// }
 		}
 		
 		function cart(){
@@ -102,6 +118,10 @@
 				foreach ($_SESSION['cart'] as $key => $value) {
 					$result=$this->order_model->listproductcart($value);
 					$orderdetails[$value['product_code']]=json_decode($result);
+					$img=$this->img_model->img_product_detail($value['product_code'],$value['color_id'],$value['size_id']);
+					$img=json_decode($img);
+
+					$_SESSION['cart'][$key]['image']=$img[0]->image;
 				}
 			}
 			require_once('view/pages/shop/cart.php');
