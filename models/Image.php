@@ -43,17 +43,15 @@
 
 			return json_encode($cats);
 		}
-		function color_product_detail($code){
-			$sql="SELECT DISTINCT color_id , colors.name as color FROM product_details as product_detail, colors,products WHERE  color_id= colors.id AND product_detail.product_id= products.product_id  AND quantity > 0 AND  products.product_code='".$code;
+		function img_product_detail($code,$color_id,$size_id){
+			$sql="SELECT DISTINCT image FROM products, product_images,product_details WHERE product_details.product_image_id= product_images.id AND products.id=product_details.product_id  AND  products.code='".$code."' AND  color_id=".$color_id." AND size_id=".$size_id;
 			$cats= array();
 			$stmt= mysqli_query($this->conn, $sql);
-
 			do {
 			    while ($row = mysqli_fetch_array($stmt)){
 			       $cats[] = $row; 
 			    }
 			} while (mysqli_next_result($this->conn));
-			 mysqli_free_stmt($stmt);
 			return json_encode($cats);
 		}
 	}

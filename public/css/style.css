@@ -1793,19 +1793,20 @@ ol {
 	vertical-align: middle;
 	float: left;
 	width: 73px;
+	margin-right: 10px;
 }
 
 .cart-table .product-col .pc-title {
-	display: table-cell;
+	/*display: table-cell;*/
 	vertical-align: middle;
-	padding-left: 30px;
+	/*padding-left: 30px;*/
 }
 
 .cart-table .product-col .pc-title h4 {
 	font-size: 16px;
 	color: #414141;
 	font-weight: 700;
-	margin-bottom: 3px;
+	margin-top: 10%;
 }
 
 .cart-table .product-col .pc-title p {
@@ -1846,7 +1847,11 @@ ol {
 	color: #414141;
 	font-weight: 400;
 }
+.cart-table .color-col h4{
+	height: 40px;
+	width: 40px;
 
+}
 .cart-table .size-col h4 {
 	padding-right: 70px;
 }
@@ -1931,7 +1936,7 @@ ol {
 	color: #414141;
 }
 
-.checkout-form input[type=text] {
+.checkout-form input[type=text],.checkout-form select,.checkout-form input[type=email] {
 	width: 100%;
 	height: 44px;
 	border: none;
@@ -2095,7 +2100,7 @@ ol {
 
 .checkout-cart .price-list li span {
 	float: right;
-	width: 60px;
+	width: auto;
 	text-align: left;
 }
 

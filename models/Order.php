@@ -33,9 +33,9 @@
 		}
 		function listproductcart($value)
 		{
-			$sql="SELECT sizes.name as size_name ,colors.name as color_name,products.*,product_detail.id as productdetail_id,price FROM [NDMinh].[ShopServer].[dbo].product_details as product_detail ,products, colors , sizes WHERE product_detail.size_id= sizes.id AND product_detail.color_id= colors.id AND product_detail.product_id= products.product_id AND color_id =".$value['color_id']." AND size_id= ".$value['size_id']." AND branch_id=".$_SESSION['branch_id']." AND products.product_code ='".$value['product_code']."'";
-			$sql1=sqlsrv_query($this->conn,$sql);
-		    return json_encode(sqlsrv_fetch_array($sql1, SQLSRV_FETCH_ASSOC));
+			$sql="SELECT sizes.name as size_name ,colors.name as color_name,products.*,product_detail.id as productdetail_id,price FROM product_details as product_detail ,products, colors , sizes WHERE product_detail.size_id= sizes.id AND product_detail.color_id= colors.id AND product_detail.product_id= products.id AND color_id =".$value['color_id']." AND size_id= ".$value['size_id']." AND products.code ='".$value['product_code']."'";
+			$sql1=mysqli_query($this->conn,$sql);
+		    return json_encode(mysqli_fetch_array($sql1));
 			
 		}
 	}

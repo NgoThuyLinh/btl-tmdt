@@ -55,7 +55,7 @@
 					<div class="p-review">
 						<a href="">3 đánh giá</a>|<a href="">Thêm đánh giá sản phẩm</a>
 					</div>
-					<form action="?mod=order&product_code=<?=$_GET['productCode']?>" method="POST" accept-charset="utf-8">
+					<form action="?mod=order&product_code=<?=$_GET['productCode']?>" method="POST" accept-charset="utf-8" name="carts">
 						<div class="fw-color-choose">
 							<p>Color</p>
 							<?php 
