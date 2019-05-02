@@ -97,6 +97,9 @@
 				case 'productdetail':
 					$category->detail();
 					break;
+				case 'img':
+					$category->img();
+					break;
 				default:
 					$category->list();
 					break;

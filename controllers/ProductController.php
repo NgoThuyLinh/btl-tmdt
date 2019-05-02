@@ -38,5 +38,11 @@
 			$imgs=json_decode($imgs);
 			require_once('view/pages/shop/product-detail.php');
 		}
+		function img(){
+			$imgs= $this->imgs_model->img($_GET['code'],$_GET['color_id']);
+			
+			// $imgs=json_decode($imgs);
+			echo $imgs;
+		}
 	}
 ?>

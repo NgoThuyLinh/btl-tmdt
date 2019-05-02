@@ -31,18 +31,11 @@
 						<img src="<?=$k->image?>" alt="" width = "100%" height = "600px" >
 						<?php break;}} ?>
 					</div>
-					<!-- <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
-						<div class="product-thumbs-track">
-							<div class="pt active" data-imgbigurl="publics/img/single-product/1.jpg"><img src="publics/img/single-product/thumb-1.jpg" alt=""></div>
-							<div class="pt" data-imgbigurl="publics/img/single-product/2.jpg"><img src="publics/img/single-product/thumb-2.jpg" alt=""></div>
-							<div class="pt" data-imgbigurl="publics/img/single-product/3.jpg"><img src="publics/img/single-product/thumb-3.jpg" alt=""></div>
-							<div class="pt" data-imgbigurl="publics/img/single-product/4.jpg"><img src="publics/img/single-product/thumb-4.jpg" alt=""></div>
-						</div>
-					</div> -->
+					
 				</div>
 				<div class="col-lg-6 product-details">
 					<h2 class="p-title"><?=$product[0]->name?></h2>
-					<h3 class="p-price">$<?=$product[0]->price?></h3>
+					<h3 class="p-price"><?=$product[0]->price?> đ</h3>
 					<h4 class="p-stock">Available:<span><?php if ($product[1]==true ) { echo "In Stock";
 					}else{echo "Not in stock";}?></span></h4>
 					<div class="p-rating">
@@ -101,14 +94,11 @@
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
 							<div class="panel-header" id="headingOne">
-								<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">information</button>
+								<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Thông tin mô tả</button>
 							</div>
 							<div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 								<div class="panel-body">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
-									<p>Approx length 66cm/26" (Based on a UK size 8 sample)</p>
-									<p>Mixed fibres</p>
-									<p>The Model wears a UK size 8/ EU size 36/ US size 4 and her height is 5'8"</p>
+									<p><?=$product[0]->description?></p>
 								</div>
 							</div>
 						</div>
@@ -118,7 +108,7 @@
 							</div>
 							<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 								<div class="panel-body">
-									<img src="publics/img/cards.png" alt="">
+									<img src="public/img/cards.png" alt="">
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
 								</div>
 							</div>
@@ -156,3 +146,41 @@
 		echo "<script type='text/javascript'>alert('Số lượng mua quá lớn');</script>";
 	}
 ?>
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		var color_id;
+		var result;
+		$('input[name="color_id"]').change(function(e) { 
+
+		    color_id= $(this).val();
+		   $.ajax({
+		   		url: "?mod=product&act=img",
+		   		method: "GET",
+		   		data:{
+		   			'color_id': color_id,
+		   			'code': '<?=$_GET['productCode']?>'
+		   		},
+		   		success: function(a){
+		   			result = JSON.parse(a);
+			    	console.log(result)
+			    	result.forEach(function(element) {
+					  	console.log(element);
+					  	$(".product-pic-zoom img").attr("src", element.image);
+					});
+			  	}
+			});
+
+
+		});
+		var size_id;
+		$('input[name="size_id"]').change(function(e) { 
+
+		    size_id =$(this).val(); 
+
+
+		});
+
+	})
+</script>

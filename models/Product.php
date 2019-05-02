@@ -22,7 +22,7 @@
 		}
 		// Sản phẩm bán chạy
 		function list_top(){
-			$query="select DISTINCT products.id,products.name, products.price,category_id,description from products, product_details,(select product_detail_id,count(quantity) as quantity from order_detail GROUP BY product_detail_id ORDER BY quantity) as order_detail WHERE  products.id= product_details.product_id AND product_details.id= order_detail.product_detail_id LIMIT 10";
+			$query="select DISTINCT products.id,products.name, products.price,category_id,description,code from products, product_details,(select product_detail_id,count(quantity) as quantity from order_detail GROUP BY product_detail_id ORDER BY quantity) as order_detail WHERE  products.id= product_details.product_id AND product_details.id= order_detail.product_detail_id LIMIT 10";
 			$stmt= mysqli_query($this->conn, $query);
 			do {
 			    while ($row = mysqli_fetch_assoc($stmt)){
