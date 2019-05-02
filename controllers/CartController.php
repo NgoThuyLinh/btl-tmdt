@@ -77,8 +77,11 @@
 		}
 		function buy(){
 			var_dump($_POST);
-			die();
-			$data=array('customer_name'=>$_POST['customer_name'], 'customer_address'=>$_POST['customer_address'], 'customer_phone'=>$_POST['customer_phone'],'description'=>$_POST['description'], 'city_id'=>$_POST['city_id'],'description'=>$_POST['description'], 'village_id'=>$_POST['village_id'],'customer_email'=>$_POST['customer_email']);
+			if (!isset($_POST['customer_id'])) {
+				$data=array('customer_id'=>null,'customer_name'=>$_POST['customer_name'], 'customer_address'=>$_POST['customer_address'], 'customer_phone'=>$_POST['customer_phone'],'description'=>$_POST['description'], 'city_id'=>$_POST['city_id'],'description'=>$_POST['description'], 'village_id'=>$_POST['village_id'],'customer_email'=>$_POST['customer_email'],'district_id'=>$_POST['district_id']);
+			}
+			
+			var_dump($data);
 			$result=$this->order_model->createOrder($data);
 			if ($result) {
 				unset($_SESSION['cart']);
