@@ -28,6 +28,8 @@
 			$products= json_decode($products);
 			$product_tops = $this->products_model->list_top();
 			$product_tops= json_decode($product_tops);
+			$product_news = $this->products_model->list_new();
+			$product_news= json_decode($product_news);
 			$cats= json_decode($cats);
 			$imgs = $this->img_model->list();
 			$imgs= json_decode($imgs);

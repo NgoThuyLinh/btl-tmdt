@@ -91,6 +91,7 @@
 			}
 		}
 		function checkout(){
+
 			// if (isset($_SESSION['user'])) {
 				$cats= $this->cats_model->list();
 				$add= $this->add_model->address();
@@ -113,6 +114,10 @@
 		}
 		
 		function cart(){
+			$product_tops = $this->products_model->list();
+			$product_tops= json_decode($product_tops);
+			$imgs = $this->img_model->list();
+			$imgs= json_decode($imgs);
 			$orderdetails=array();
 			if (isset($_SESSION['cart'])) {
 				foreach ($_SESSION['cart'] as $key => $value) {

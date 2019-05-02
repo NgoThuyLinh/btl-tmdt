@@ -4,10 +4,10 @@
 <!-- Page info -->
 	<div class="page-top-info">
 		<div class="container">
-			<h4>Your cart</h4>
+			<h4>Giỏ hàng của bạn</h4>
 			<div class="site-pagination">
-				<a href="">Home</a> /
-				<a href="">Your cart</a>
+				<a href="">Trang chủ</a> /
+				<a href="">Giỏ hàng</a>
 			</div>
 		</div>
 	</div>
@@ -20,16 +20,16 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="cart-table">
-						<h3>Your Cart</h3>
+						<h3>Giỏ hàng của bạn</h3>
 						<div class="cart-table-warp">
 							<table>
 							<thead>
 								<tr>
-									<th class="product-th">Product</th>
-									<th class="size-th">Size</th>
-									<th class="size-th">Color</th>
-									<th class="quy-th">Quantity</th>
-									<th class="total-th">Price</th>
+									<th class="product-th">Sản phẩm</th>
+									<th class="size-th">Kích thước</th>
+									<th class="size-th">Màu</th>
+									<th class="quy-th">Số lượng</th>
+									<th class="total-th">Giá</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -68,7 +68,7 @@
 						</table>
 						</div>
 						<div class="total-cost">
-							<h6>Total <span><?=$sum?> đ</span></h6>
+							<h6>Tổng tiền <span><?=$sum?> đ</span></h6>
 						</div>
 					</div>
 				</div>
@@ -77,8 +77,8 @@
 						<input type="text" placeholder="Enter promo code">
 						<button>Submit</button>
 					</form>
-					<a href="?mod=order&act=checkout" class="site-btn">Proceed to checkout</a>
-					<a href="?mod=home&act=home" class="site-btn sb-dark">Continue shopping</a>
+					<a href="?mod=order&act=checkout" class="site-btn">Thanh toán</a>
+					<a href="?mod=home&act=home" class="site-btn sb-dark">Tiếp tục mua hàng</a>
 				</div>
 			</div>
 		</div>
@@ -89,70 +89,33 @@
 	<section class="related-product-section">
 		<div class="container">
 			<div class="section-title text-uppercase">
-				<h2>Continue Shopping</h2>
+				<h2>Sản phẩm bán chạy nhất</h2>
 			</div>
 			<div class="row">
+				<?php if (isset($product_tops)) {
+					foreach ($product_tops as $key => $value) {
+				 ?>
 				<div class="col-lg-3 col-sm-6">
 					<div class="product-item">
 						<div class="pi-pic">
-							<div class="tag-new">New</div>
-							<img src="publics/img/product/2.jpg" alt="">
+							<?php foreach ($imgs as $k) {
+								if ($k->product_id==$value->id) {
+							
+							?>
+							<img src="<?=$k->image?>" alt="">
+							<?php break;} }?>
 							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>Thêm giỏ hàng</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 							</div>
 						</div>
 						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Black and White Stripes Dress</p>
+							<p><?=$value->name?></p>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<img src="publics/img/product/5.jpg" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<img src="publics/img/product/9.jpg" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<img src="publics/img/product/1.jpg" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
-						</div>
-					</div>
-				</div>
+				<?php }} ?>
+				
 			</div>
 		</div>
 	</section>

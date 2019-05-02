@@ -5,10 +5,9 @@
 <!-- Page info -->
 	<div class="page-top-info">
 		<div class="container">
-			<h4>Category PAge</h4>
+			<h4>Chi tiết sản phẩm</h4>
 			<div class="site-pagination">
-				<a href="">Trang chủ</a> /
-				<a href="">Shop</a>
+				<a href="">Trang chủ</a> / Sản phẩm
 			</div>
 		</div>
 	</div>
@@ -36,8 +35,8 @@
 				<div class="col-lg-6 product-details">
 					<h2 class="p-title"><?=$product[0]->name?></h2>
 					<h3 class="p-price"><?=$product[0]->price?> đ</h3>
-					<h4 class="p-stock">Available:<span><?php if ($product[1]==true ) { echo "In Stock";
-					}else{echo "Not in stock";}?></span></h4>
+					<h4 class="p-stock">Tình trạng:<span><?php if ($product[1]==true ) { echo "Còn hàngs";
+					}else{echo "Hết hàng";}?></span></h4>
 					<div class="p-rating">
 						<i class="fa fa-star-o"></i>
 						<i class="fa fa-star-o"></i>
@@ -85,7 +84,7 @@
 						</div>
 						
 						<div class="quantity">
-							<p>Quantity</p>
+							<p>Số lượng mua</p>
 	                        <div class="pro-qty"><input type="text" value="1" name="quantity_buy"></div>
 	                    </div>
 						<button type="submit" class="site-btn" name="order">Mua hàng</button>
@@ -104,24 +103,24 @@
 						</div>
 						<div class="panel">
 							<div class="panel-header" id="headingTwo">
-								<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">care details </button>
+								<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Thanh toán qua thẻ </button>
 							</div>
 							<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 								<div class="panel-body">
 									<img src="public/img/cards.png" alt="">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+									<p>Những ngân hàng quý khách có thể thanh toán bằng thẻ</p>
 								</div>
 							</div>
 						</div>
 						<div class="panel">
 							<div class="panel-header" id="headingThree">
-								<button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">shipping & Returns</button>
+								<button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Vận chuyển và giao hàng</button>
 							</div>
 							<div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
 								<div class="panel-body">
-									<h4>7 Days Returns</h4>
-									<p>Cash on Delivery Available<br>Home Delivery <span>3 - 4 days</span></p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+									<h4>7 ngày trả hàng</h4>
+									<p>Hàng có sẵn trong kho<br>Vận chuyển <span>3 - 4 ngày</span></p>
+									<p>Quý khách vui lòng chờ điện thoại để nhận hàng và kiểm tra  sản phẩm khi nhận. Nếu có hỏng hóc vui lòng báo cho người vận chuyển</p>
 								</div>
 							</div>
 						</div>

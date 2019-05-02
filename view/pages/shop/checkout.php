@@ -6,10 +6,10 @@
 <!-- Page info -->
 	<div class="page-top-info">
 		<div class="container">
-			<h4>Your cart</h4>
+			<h4>Giỏ hàng của bạn</h4>
 			<div class="site-pagination">
-				<a href="">Home</a> /
-				<a href="">Your cart</a>
+				<a href="">Trang chủ</a> /
+				<a href="">Giỏ hàng của bạn</a>
 			</div>
 		</div>
 	</div>
@@ -89,18 +89,18 @@
 								</div>
 							</div>
 						</div>
-						<div class="cf-title">Payment</div>
+						<div class="cf-title">Thanh toán</div>
 						<ul class="payment-list">
-							<li>Paypal<a href="#"><img src="public/img/paypal.png" alt=""></a></li>
-							<li>Credit / Debit card<a href="#"><img src="public/img/mastercart.png" alt=""></a></li>
-							<li>Pay when you get the package</li>
+							<li>Thẻ<a href="#"><img src="public/img/paypal.png" alt=""></a></li>
+							<li>Thẻ<a href="#"><img src="public/img/mastercart.png" alt=""></a></li>
+							<li>Thanh toán khi nhận hàng</li>
 						</ul>
-						<button class="site-btn submit-order-btn" name="submit">Place Order</button>
+						<button class="site-btn submit-order-btn" name="submit">Mua hàng</button>
 					</form>
 				</div>
 				<div class="col-lg-4 order-1 order-lg-2">
 					<div class="checkout-cart">
-						<h3>Your Cart</h3>
+						<h3>Giỏ hàng</h3>
 						<ul class="product-list">
 							<?php if (isset($_SESSION['cart'])) {
 								$sum=0;
@@ -121,9 +121,9 @@
 							?>
 						</ul>
 						<ul class="price-list">
-							<li>Total<span><?=$sum?> đ</span></li>
-							<li>Shipping<span>free</span></li>
-							<li class="total">Total<span> <?=$sum?>đ</span></li>
+							<li>Tổng<span><?=$sum?> đ</span></li>
+							<li>Vận chuyển<span>free</span></li>
+							<li class="total">Tổng tiền<span> <?=$sum?>đ</span></li>
 						</ul>
 					</div>
 				</div>

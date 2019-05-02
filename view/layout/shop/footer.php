@@ -7,48 +7,48 @@
 			<div class="row">
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget about-widget">
-						<h2>About</h2>
-						<p>Donec vitae purus nunc. Morbi faucibus erat sit amet congue mattis. Nullam frin-gilla faucibus urna, id dapibus erat iaculis ut. Integer ac sem.</p>
+						<h2>Thông tin</h2>
+						<p>Cửa hàng bán những sản phẩm đi theo xu hướng hiện đại</p>
 						<img src="public/img/cards.png" alt="">
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget about-widget">
-						<h2>Questions</h2>
+						<h2>Thông tin</h2>
 						<ul>
-							<li><a href="">About Us</a></li>
-							<li><a href="">Track Orders</a></li>
-							<li><a href="">Returns</a></li>
-							<li><a href="">Jobs</a></li>
-							<li><a href="">Shipping</a></li>
-							<li><a href="">Blog</a></li>
+							<li><a href="">Thông tin về húng tôi</a></li>
+							<li><a href="">Giỏ hàng</a></li>
+							<li><a href="">Trở về</a></li>
+							<li><a href="">Công việc</a></li>
+							<li><a href="">Vận chuyểnn</a></li>
+							<li><a href="">Tin tức</a></li>
 						</ul>
 						<ul>
-							<li><a href="">Partners</a></li>
-							<li><a href="">Bloggers</a></li>
-							<li><a href="">Support</a></li>
-							<li><a href="">Terms of Use</a></li>
-							<li><a href="">Press</a></li>
+							<li><a href="">Liên hệ</a></li>
+							<li><a href="">Người viết tin</a></li>
+							<li><a href="">Hỗ trợ</a></li>
+							<li><a href="">Điều khoản của người dùng</a></li>
+							<li><a href="">Đánh giá sản phẩm</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget about-widget">
-						<h2>Questions</h2>
+						<h2>Tin tức</h2>
 						<div class="fw-latest-post-widget">
 							<div class="lp-item">
 								<div class="lp-thumb set-bg" data-setbg="public/img/blog-thumbs/1.jpg"></div>
 								<div class="lp-content">
-									<h6>what shoes to wear</h6>
-									<span>Oct 21, 2018</span>
-									<a href="#" class="readmore">Read More</a>
+									<h6>bạn nên mặc gì cho hợp lí</h6>
+									<span> 21-09-2018</span>
+									<a href="#" class="readmore">Đọc thêm</a>
 								</div>
 							</div>
 							<div class="lp-item">
 								<div class="lp-thumb set-bg" data-setbg="public/img/blog-thumbs/2.jpg"></div>
 								<div class="lp-content">
-									<h6>trends this year</h6>
-									<span>Oct 21, 2018</span>
+									<h6>Xu hướng của năm</h6>
+									<span>28-09-2018</span>
 									<a href="#" class="readmore">Read More</a>
 								</div>
 							</div>
@@ -57,14 +57,14 @@
 				</div>
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget contact-widget">
-						<h2>Questions</h2>
+						<h2>Địa chỉ</h2>
 						<div class="con-info">
 							<span>C.</span>
-							<p>Your Company Ltd </p>
+							<p>Linh Linh</p>
 						</div>
 						<div class="con-info">
-							<span>B.</span>
-							<p>1481 Creekside Lane  Avila Beach, CA 93424, P.O. BOX 68 </p>
+							<span>C.</span>
+							<p>1481 ad đff, CA 93424, P.O. BOX 68 </p>
 						</div>
 						<div class="con-info">
 							<span>T.</span>

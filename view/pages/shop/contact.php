@@ -5,10 +5,10 @@
 <!-- Page info -->
 	<div class="page-top-info">
 		<div class="container">
-			<h4>Contact</h4>
+			<h4>Liên hệ</h4>
 			<div class="site-pagination">
-				<a href="">Home</a> /
-				<a href="">Contact</a>
+				<a href="">Trang chủ</a> /
+				<a href="">Liên hệ</a>
 			</div>
 		</div>
 	</div>
