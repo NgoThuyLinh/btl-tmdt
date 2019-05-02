@@ -10,16 +10,22 @@
 		}
 		
 		function find($data){
-			$query="SELECT customer_id, name, username, address FROM customers WHERE username='".$data['username']."'AND password='".$data['password']."'";
+			$query="SELECT id, name, username, address,phone,email FROM customers WHERE username='".$data['username']."'AND password='".$data['password']."'";
 			$cats= array();
-			$stmt= sqlsrv_query($this->conn, $query);
-		    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+			$stmt= mysqli_query($this->conn, $query);
+		    while ($row = mysqli_fetch_array($stmt)){
 		       $cats[] = $row; 
 		    }
-			 sqlsrv_free_stmt($stmt);
+			 // sqlsrv_free_stmt($stmt);
 			
-			 var_dump($cats);
+			 // var_dump($cats);
 			return json_encode($cats);
+		}
+
+		function insert($data){
+			$query="INSERT INTO customers(address,phone,name,username,email,password) VALUES('".$data['address']."','".$data['phone']."','".$data['name']."','".$data['username']."','".$data['email']."','".$data['password']."')";
+			$stmt = mysqli_query($this->conn, $query);
+			return $stmt;
 		}
 		
 	}

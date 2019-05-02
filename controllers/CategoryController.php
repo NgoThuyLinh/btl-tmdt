@@ -9,6 +9,7 @@
 	{
 		var $products_model;
 		var $cats_model;
+
 		var $sizes_model;
 		var $colors_model;
 		var $producers_model;
@@ -31,8 +32,14 @@
 			$colors=json_decode($colors);
 			$sizes=json_decode($sizes);
 			$products=json_decode($products);
-			
 			require_once('view/pages/shop/category.php');
+		}
+
+		function searchProduct(){
+			$s = $_GET['minamount'];
+			// echo $s; die();
+
+			var_dump($s);die();
 		}	
 	}
 ?>

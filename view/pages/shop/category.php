@@ -38,7 +38,7 @@
 						<h2 class="fw-title">refine by</h2>
 						<div class="price-range-wrap">
 							<h4>Price</h4>
-                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="10" data-max="270">
+                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="10000" data-max="10000000">
 								<div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 100%;"></div>
 								<span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;">
 								</span>
@@ -46,7 +46,7 @@
 								</span>
 							</div>
 							<div class="range-slider">
-                                <div class="price-input">
+                                <div class="price-input" >
                                     <input type="text" id="minamount">
                                     <input type="text" id="maxamount">
                                 </div>
@@ -61,7 +61,7 @@
 									foreach ($colors as $key => $value) {									
 							 ?>
 							<div class="cs-item">
-								<input type="radio" name="cs" id="<?=$value->name?>-color">
+								<input type="radio" name="cs" id="<?=$value->name?>-color" value = "<?=$value->id?>">
 								<label class="cs-<?=$value->name?>" for="<?=$value->name?>-color">
 								</label>
 							</div>
@@ -80,7 +80,7 @@
 									foreach ($sizes as $key => $value) {									
 							 ?>
 							<div class="sc-item">
-								<input type="radio" name="sc" id="<?=$value->name?>-size">
+								<input type="radio" name="sc" id="<?=$value->name?>-size" value="<?=$value->id?>">
 								<label for="<?=$value->name?>-size"><?=$value->name?></label>
 							</div>
 							<?php 
@@ -91,7 +91,7 @@
 						</div>
 					</div>
 					<div class="filter-widget">
-						<h2 class="fw-title">Brand</h2>
+						<button class="fw-title" id ="buttonSearchCate">Brand</button>
 						<ul class="category-menu">
 							<?php if (isset($producers)) {
 								foreach ($producers as $key => $value) {
@@ -106,9 +106,10 @@
 				</div>
 
 				<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
-					<div class="row">
+					<div class="row" id="cate_pro">
 						<?php 
 							if (isset($products)) {
+								// var_dump($products);die();
 								foreach ($products as $key => $value) {										
 						 ?>
 						<div class="col-lg-4 col-sm-6">
@@ -123,8 +124,8 @@
 									</div>
 								</div>
 								<div class="pi-text">
-									<h6>$<?= $value->price?></h6>
-									<p><?=$value->name?></p>
+									<h6>$<?=  number_format($value->price,0,".",",") . ' ₫' ?></h6>
+									<p><?=$value->name ?></p>
 								</div>
 							</div>
 						</div>
@@ -147,3 +148,47 @@
 <?php 
 	include_once('view/layout/shop/footer.php');
 ?> 
+<script type="text/javascript">
+	$(document).ready(function(){
+		 $(document).on('click', '#buttonSearchCate', function() {
+		 	console.log('aaa');
+
+		        // $('#cate_pro').children().remove();
+		        // // clearTimeout(timeout);
+		        // // timeout = setTimeout(function () {
+		            searchproduct();    
+		        // }, 500);
+
+		    });
+	})
+
+	function searchproduct(){
+		$.ajaxSetup({
+	        headers: {
+	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	        }
+	    });
+		$.ajax({
+			processData: false,
+			contentType: false,
+			url: '?mod=category&act=searchProduct',
+			type: 'get',
+			data: {
+                'minamount': $('#minamount').val(),
+                // 'maxamount': "'".$('#maxamount').val()."'",
+                // 'color': "'".$("input[name='cs']:checked").val()."'",
+                // 'size': "'".$("input[name='sc']:checked").val()."'"
+	        },
+			dataType : 'json',
+
+			success : function(data){
+				console.log(data);
+	            // var array = JSON.parse(data);
+	    //         $.each(JSON.parse(array.cates), function(key,value){
+					// console.log(value.name);
+	    //             $('#category_head').append('<li class="" index="' + key + '"><a href="#">'+value.name+'</a></li>');
+	    //         })
+			},
+		});
+	}
+</script>

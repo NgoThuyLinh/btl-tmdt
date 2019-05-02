@@ -31,6 +31,16 @@
 				case 'contact':
 					$home->contact();
 					break;
+				case 'logout':
+					$home->logout();
+					break;
+				case 'signup':
+					$home->singingup();
+					break;
+				case 'signupstore':
+					$home->signupstore();
+					break;
+
 				
 				default:
 					$home->home();
@@ -42,7 +52,7 @@
 			include_once('controllers/UserController.php');
 			$user = new UserController();
 			switch ($act) {
-				
+
 				default:
 					$user->list();
 					break;
@@ -54,7 +64,9 @@
 			include_once('controllers/CategoryController.php');
 			$category = new CategoryController();
 			switch ($act) {
-				
+				case 'searchProduct':
+					$category->searchProduct();
+					break;
 				default:
 					$category->listproduct();
 					break;

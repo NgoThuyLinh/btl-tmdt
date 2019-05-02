@@ -35,11 +35,14 @@
 				<?php 
 					if(isset($cats)){
 						foreach ($cats as $key => $value) {	
-							if($value->parent_id!=null){
+							// echo $value->id;
+							if($value->parent_id != NULL){
+								// echo 'aaa';die();
 				?>
-				<li><a href="?mod=category&act=category&categoryId=<?=$value->category_id?>"><?=$value->name?></a></li>
+				<li><a href="?mod=category&act=category&categoryId=<?= $value->id ?>"><?=$value->name?></a></li>
 				<?php 
-						}}
+							}
+						}
 					} 
 				?>
 			</ul>
@@ -78,7 +81,7 @@
 				
 			</div>
 			<div class="text-center pt-5">
-				<button class="site-btn sb-line sb-dark">LOAD MORE</button>
+				<button class="site-btn sb-line sb-dark">Nhiều hơn</button>
 			</div>
 		</div>
 	</section>
@@ -125,7 +128,7 @@
 				
 			</div>
 			<div class="text-center pt-5">
-				<button class="site-btn sb-line sb-dark">LOAD MORE</button>
+				<button class="site-btn sb-line sb-dark">Nhiều hơn</button>
 			</div>
 		</div>
 	</section>
