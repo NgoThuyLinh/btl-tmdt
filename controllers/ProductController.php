@@ -48,20 +48,18 @@
 			echo $imgs;
 		}
 		function list(){
-			$product = $this->products_model->list();
-			$product_tops = $this->products_model->list_top();
-			$product_tops= json_decode($product_tops);
-			
-			$colors= $this->colors_model->color_product_detail($product_code);
+			// $product_code=$_GET['productCode'];
+			$product = $this->products_model->l();
+			$colors= $this->colors_model->list();
 			$cats= $this->cats_model->list();
-			$sizes= $this->sizes_model->size_product_detail($product_code);
+			$sizes= $this->sizes_model->list();
 			$imgs= $this->imgs_model->list();
 			$colors=json_decode($colors);
 			$sizes=json_decode($sizes);
 			$cats=json_decode($cats);
 			$product=json_decode($product);
 			$imgs=json_decode($imgs);
-			require_once('view/pages/shop/product-detail.php');
+			require_once('view/pages/shop/category.php');
 		}
 	}
 ?>

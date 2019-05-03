@@ -81,9 +81,6 @@
 				 ?>
 				
 			</div>
-			<div class="text-center pt-5">
-				<button class="site-btn sb-line sb-dark">Xem thêm</button>
-			</div>
 		</div>
 	</section>
 
@@ -129,7 +126,7 @@
 				
 			</div>
 			<div class="text-center pt-5">
-				<button class="site-btn sb-line sb-dark">Xem thêm</button>
+				<a href="?mod=product&act=top&"><button class="site-btn sb-line sb-dark">Xem thêm</button></a>
 			</div>
 		</div>
 	</section>

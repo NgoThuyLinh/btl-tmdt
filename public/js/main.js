@@ -99,7 +99,8 @@ $(window).on('load', function() {
 	$('.product-slider').owlCarousel({
 		slideSpeed : 1000,
 	    nav: true,
-	    autoplay: true,
+	    autoplay: 2500,
+	    autoplayTimeout:2000,
 	    dots: true,
 	    loop: true,
 	    responsiveRefreshRate : 200,
