@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Đăng nhập</title>
+	<title>Trang đăng ký</title>
    <!--Made with love by Mutiullah Samim -->
    
 	<!--Bootsrap 4 CDN-->
@@ -22,13 +22,13 @@
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
+			<?php if (isset($_COOKIE['msg1'])) { ?>
+            <div class="alert alert-danger">
+                 <?php echo $_COOKIE['msg1']?>;
+            </div>
+          <?php } ?>
 			<div class="card-header">
-				<?php if (isset($_COOKIE['msg'])) { ?>
-		            <div class="alert alert-danger">
-		                 <?php echo $_COOKIE['msg']?>;
-		            </div>
-		         <?php } ?>
-				<h3>Đăng nhập</h3>
+				<h3>Đăng ký</h3>
 				<div class="d-flex justify-content-end social_icon">
 					<span><i class="fab fa-facebook-square"></i></span>
 					<span><i class="fab fa-google-plus-square"></i></span>
@@ -36,34 +36,64 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form action="?mod=home&act=login" method="POST">
+				<form action="?mod=home&act=signupstore" method="POST">
+					<div class="input-group form-group">
+						<div class="input-group-prepend" >
+							<span class="input-group-text" style="width: 150px">Họ tên</i></span>
+						</div>
+						<input name="name" type="text" class="form-control" placeholder="">
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend" >
+							<span class="input-group-text" style="width: 150px">Email</i></span>
+						</div>
+						<input name="email" type="email" class="form-control" placeholder="">
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend" >
+							<span class="input-group-text" style="width: 150px">Địa chỉ</i></span>
+						</div>
+						<input name="address" type="text" class="form-control" placeholder="">
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend" >
+							<span class="input-group-text" style="width: 150px">Số điện thoại</i></span>
+						</div>
+						<input name="phone" type="number" class="form-control" placeholder="">
+					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
+							<span class="input-group-text" style="width: 150px">Tên đăng nhập </i></span>
 						</div>
 						<input name="username" type="text" class="form-control" placeholder="">
 						
 					</div>
 					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						<div class="input-group-prepend" >
+							<span class="input-group-text" style="width: 150px">Mật khẩu</i></span>
 						</div>
 						<input name="password" type="password" class="form-control" placeholder="">
 					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend" >
+							<span class="input-group-text" style="width: 150px">Xác nhận mật khẩu</i></span>
+						</div>
+						<input name="confirmpassword" type="password" class="form-control" placeholder="">
+					</div>
 					<div class="row align-items-center remember">
-						<input type="checkbox">Nhớ mật khẩu
+						<!-- <input type="checkbox"> -->
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn" name="Đăng nhập">
+						<input type="submit" value="Đăng ký" class="btn float-right login_btn" name="Đăng ký">
 					</div>
 				</form>
 			</div>
 			<!-- <div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Bạn không có tài khoản?<a href="#">Đăng kí</a>
+					Don't have an account?<a href="#">Sign U</a>
 				</div>
 				<div class="d-flex justify-content-center">
-					<a href="#">Quên mật khẩu?</a>
+					<a href="#">Forgot your password?</a>
 				</div>
 			</div> -->
 		</div>

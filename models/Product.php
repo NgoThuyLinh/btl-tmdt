@@ -74,6 +74,30 @@
 			} while (mysqli_next_result($this->conn));
 			return json_encode($cats);
 		}
+
+		function searchProduct($data){
+			if(isset($data->color) && !isset($data->size)){
+				$query="SELECT DISTINCT products.id as product_id, products.category_id, categories.name as category, code, description,price, products.name as name FROM products, product_details as product_detail, categories WHERE products.id=product_detail.product_id AND products.category_id=categories.id AND categories.id=".$data->category."  AND product_detail.color_id=".$data->color." AND products.price > ".$data->minamount." AND products.price < ".$data->maxamount;
+			}else if(isset($data->size) && !isset($data->color)){
+				$query="SELECT DISTINCT products.id as product_id, products.category_id, categories.name as category, code, description,price, products.name as name FROM products, product_details as product_detail, categories WHERE products.id=product_detail.product_id AND products.category_id=categories.id AND categories.id=".$data->category."  AND product_detail.size_id='".$data->size." AND products.price > ".$data->minamount." AND products.price < ".$data->maxamount;
+			}else if(isset($data->color) && isset($data->color)){
+				$query="SELECT DISTINCT products.id as product_id, products.category_id, categories.name as category, code, description,price, products.name as name FROM products, product_details as product_detail, categories WHERE products.id=product_detail.product_id AND products.category_id=categories.id AND categories.id=".$data->category."  AND product_detail.size_id='".$data->size."'AND product_detail.color_id=".$data->color." AND products.price > ".$data->minamount." AND products.price < ".$data->maxamount;
+			}else {
+				$query="SELECT DISTINCT products.id as product_id, products.category_id, categories.name as category, code, description,price, products.name as name FROM products, product_details as product_detail, categories WHERE products.id=product_detail.product_id AND products.category_id=categories.id AND categories.id=".$data->category."  AND products.price > ".$data->minamount." AND products.price < ".$data->maxamount;
+			}
+
+			$cats= array();
+			$stmt= mysqli_query($this->conn, $query);
+
+			do {
+			    while ($row = mysqli_fetch_assoc($stmt)){
+			       $cats[] = $row;
+			    }
+			} while (mysqli_next_result($this->conn));
+			 // sqlsrv_free_stmt($stmt);
+			return json_encode($cats );
+			// var_dump($query);die();
+		}
 		
 	}
 ?>

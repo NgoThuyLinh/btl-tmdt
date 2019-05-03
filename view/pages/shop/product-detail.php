@@ -57,7 +57,7 @@
 							 ?>
 							<div class="cs-item">
 								<input type="radio" name="color_id" id="<?=$value->color?>-color" value="<?=$value->color_id?>">
-								<label class="cs-<?=$value->color?>" for="<?=$value->color?>-color">
+								<label class="cs-<?=$value->color?>" for="<?=$value->color?>-color"  style="background:<?=$value->hexa?>">
 								</label>
 							</div>
 							<?php

@@ -10,10 +10,11 @@
 	{
 		var $products_model;
 		var $cats_model;
+
 		var $sizes_model;
 		var $colors_model;
 		var $producers_model;
-		var $img_model;
+		var $imgs_model;
 
 		function __construct()
 		{
@@ -21,7 +22,7 @@
 			$this->sizes_model= new Size();
 			$this->colors_model= new Color();
 			$this->cats_model= new Category();
-			$this->img_model= new Image();
+			$this->imgs_model= new Image();
 		}
 		
 		function listproduct(){
@@ -30,14 +31,20 @@
 			$cats=$this->cats_model->list();
 			$colors= $this->colors_model->list();
 			$sizes= $this->sizes_model->list();
-			$imgs = $this->img_model->list();
-			$imgs= json_decode($imgs);
+			$imgs= $this->imgs_model->list();
 			$cats=json_decode($cats);
 			$colors=json_decode($colors);
 			$sizes=json_decode($sizes);
 			$products=json_decode($products);
-			
+			$imgs=json_decode($imgs);
 			require_once('view/pages/shop/category.php');
+		}
+
+		function searchProduct(){
+			$data = json_decode($_GET['ketqua']);
+			$products = $this->products_model->searchProduct($data);
+
+			echo $products;
 		}	
 	}
 ?>

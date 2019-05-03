@@ -35,11 +35,14 @@
 				<?php 
 					if(isset($cats)){
 						foreach ($cats as $key => $value) {	
-							if($value->parent_id!=null){
+							// echo $value->id;
+							if($value->parent_id != NULL){
+								// echo 'aaa';die();
 				?>
-				<li><a href="?mod=category&act=category&categoryId=<?=$value->category_id?>"><?=$value->name?></a></li>
+				<li><a href="?mod=category&act=category&categoryId=<?= $value->id ?>"><?=$value->name?></a></li>
 				<?php 
-						}}
+							}
+						}
 					} 
 				?>
 			</ul>
@@ -67,7 +70,7 @@
 							</div>
 						</div>
 						<div class="pi-text">
-							<h6><?=$value->price?> VNĐ</h6>
+							<h6><?=  number_format($value->price,0,".",",") . ' ₫' ?></h6>
 							<p><?=$value->name?></p>
 						</div>
 					</div>
@@ -114,7 +117,7 @@
 							</div>
 						</div>
 						<div class="pi-text">
-							<h6><?=$value->price?> VNĐ</h6>
+							<h6><?=  number_format($value->price,0,".",",") . ' ₫' ?></h6>
 							<p><?=$value->name?></p>
 						</div>
 					</div>

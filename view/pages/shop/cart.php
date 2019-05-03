@@ -74,8 +74,8 @@
 				</div>
 				<div class="col-lg-4 card-right">
 					<form class="promo-code-form">
-						<input type="text" placeholder="Enter promo code">
-						<button>Submit</button>
+						<input type="text" placeholder="Nhập mã khuyến mãi">
+						<button>Gửi</button>
 					</form>
 					<a href="?mod=order&act=checkout" class="site-btn">Thanh toán</a>
 					<a href="?mod=home&act=home" class="site-btn sb-dark">Tiếp tục mua hàng</a>
