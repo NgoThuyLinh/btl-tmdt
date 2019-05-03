@@ -19,6 +19,9 @@
 			$this->img_model= new Image();
 		}
 		function contact(){
+			$cats = $this->cats_model->list();
+			$cats= json_decode($cats);
+
 			require_once('view/pages/shop/contact.php');
 		}
 		

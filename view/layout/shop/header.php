@@ -119,8 +119,8 @@
 						}
 
 					}?>
-					<li><a href="?mod=contact">Liên hệ</a></li>
-					<li><a href="?mod=blog">Tin tức</a></li>
+					<li><a href="?mod=home&act=contact">Liên hệ</a></li>
+					<li><a href="?mod=home&act=blog">Tin tức</a></li>
 				</ul>
 			</div>
 		</nav>
