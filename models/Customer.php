@@ -24,6 +24,7 @@
 
 		function insert($data){
 			$query="INSERT INTO customers(address,phone,name,username,email,password) VALUES('".$data['address']."','".$data['phone']."','".$data['name']."','".$data['username']."','".$data['email']."','".$data['password']."')";
+			// echo $query; die();
 			$stmt = mysqli_query($this->conn, $query);
 			return $stmt;
 		}

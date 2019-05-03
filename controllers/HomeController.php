@@ -21,6 +21,9 @@
 			$this->img_model= new Image();
 		}
 		function contact(){
+			$cats = $this->cats_model->list();
+			$cats= json_decode($cats);
+
 			require_once('view/pages/shop/contact.php');
 		}
 		
@@ -74,9 +77,10 @@
 		        $data['address'] = $_POST['address'];
 		        $data['username'] = $_POST['username'];
 		        $data['password']= md5($_POST['password']);
-		       
+
 
 				$status = $this->customer_model->insert($data);
+		        // echo $status;die();
 				
 				if ($status == 1) {
 					setcookie('msg' ,'Đăng kí thành công', time() +2);
@@ -85,12 +89,18 @@
 		    
     			  $contents = "Họ và tên:".$_POST['name'] ."<br>"."Số điện thoại:".$_POST['phone']."<br>". "Email:".$_POST['email']."<br>". "Địa chỉ:".$_POST['address']."<br>". "Tên đăng nhập:".$_POST['username']."<br>". "Mật khẩu:".$_POST['password']."<br>";  
 		    			 
-
-
-
 		    		send_email($_POST['email'],"Hán Dương",$contents,"Thư đăng ký" );
+		    		$result= $this->customer_model->find($data);
+					$result= json_decode($result);
+					
+					if (count($result)<1) {
+						header("location: ?mod=home&act=loginform&alert=fail");
+					}else{
+						$_SESSION['user']=$result;
+						header("location: ?act=home");
+					}
 
-					header('Location: ?mod=home&act=loginform');
+					// header('Location: ?mod=home&act=loginform');
 
 				}else{
 					setcookie('msg' ,'Đăng kí không thành công', time() +2);

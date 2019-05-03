@@ -115,6 +115,9 @@
 				case 'searchListProduct':
 					$category->searchListProduct();
 					break;
+				case 'searchgetListProduct':
+					$category->searchgetListProduct();
+					break;
 				default:
 					$category->list();
 					break;

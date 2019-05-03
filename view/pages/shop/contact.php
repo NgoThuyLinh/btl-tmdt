@@ -59,7 +59,7 @@
 							<div class="tag-new">New</div>
 							<img src="publics/img/product/2.jpg" alt="">
 							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>Mua hàng</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 							</div>
 						</div>
@@ -74,7 +74,7 @@
 						<div class="pi-pic">
 							<img src="publics/img/product/5.jpg" alt="">
 							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>Mua hàng</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 							</div>
 						</div>
@@ -89,7 +89,7 @@
 						<div class="pi-pic">
 							<img src="publics/img/product/9.jpg" alt="">
 							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>Mua hàng</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 							</div>
 						</div>
@@ -104,7 +104,7 @@
 						<div class="pi-pic">
 							<img src="publics/img/product/1.jpg" alt="">
 							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>Mua hàng</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 							</div>
 						</div>

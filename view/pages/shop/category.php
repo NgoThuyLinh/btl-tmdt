@@ -63,7 +63,8 @@
 							 ?>
 							<div class="cs-item">
 								<input type="radio" name="cs" id="<?=$value->name?>-color" value = "<?=$value->id?>">
-								<label class="cs-<?=$value->name?>" for="<?=$value->name?>-color">
+								<label class="cs-<?=$value->name?>" for="<?=$value->name?>-color"  style="background:<?=$value->hexa?> ">
+
 								</label>
 							</div>
 							<?php 
@@ -126,7 +127,7 @@
 									<?php break;} }?>
 									<!-- <img src="http://192.168.43.210:8080/img/<?= $value->img?>" alt="" width = "100%" height = "200px" > -->
 									<div class="pi-links">
-										<a href="?mod=product&act=productdetail&productCode=<?=$value->code?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+										<a href="?mod=product&act=productdetail&productCode=<?=$value->code?>" class="add-card"><i class="flaticon-bag"></i><span>Mua hàng</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 									</div>
 								</div>
@@ -192,7 +193,7 @@
 				// console.log(array);
 	            $.each(array, function(key,value){
 					console.log(value.name);
-	                $('#cate_pro').append('<div class="col-lg-4 col-sm-6"><div class="product-item"><div class="pi-pic"><div class="tag-sale">ON SALE</div><img src="http://192.168.43.210:8080/img/'+ value.name+'" alt="" width = "100%" height = "200px" ><div class="pi-links"><a href="?mod=product&act=productdetail&productCode='+value.product_code+'" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a><a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a></div></div><div class="pi-text"><h6>'+  value.price+'</h6><p>'+value.name +'</p></div></div></div>');
+	                $('#cate_pro').append('<div class="col-lg-4 col-sm-6"><div class="product-item"><div class="pi-pic"><div class="tag-sale">ON SALE</div><?php foreach ($imgs as $k) {if ($k->product_id == $value->product_id) {	?><img src="<?=$k->image?>" alt=""><?php break;} }?><div class="pi-links"><a href="?mod=product&act=productdetail&productCode='+value.product_code+'" class="add-card"><i class="flaticon-bag"></i><span>Mua hàng</span></a><a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a></div></div><div class="pi-text"><h6>'+  value.price+'</h6><p>'+value.name +'</p></div></div></div>');
 	            })
 			},
 		});

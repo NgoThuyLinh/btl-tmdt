@@ -65,7 +65,7 @@
 								<img src="<?=$k->image?>" alt="" title="<?=$value->code?>" width = "270px" height = "270px">
 							<?php break;}} ?>
 							<div class="pi-links">
-								<a href="?mod=product&act=productdetail&productCode=<?=$value->code?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+								<a href="?mod=product&act=productdetail&productCode=<?=$value->code?>" class="add-card"><i class="flaticon-bag"></i><span>Mua hàng</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 							</div>
 						</div>
@@ -80,9 +80,6 @@
 					}
 				 ?>
 				
-			</div>
-			<div class="text-center pt-5">
-				<button class="site-btn sb-line sb-dark">Xem thêm</button>
 			</div>
 		</div>
 	</section>
@@ -112,7 +109,7 @@
 								<img src="<?=$k->image?>" alt="" title="<?=$value->code?>" width = "270px" height = "270px">
 							<?php break;}} ?>
 							<div class="pi-links">
-								<a href="?mod=product&act=productdetail&productCode=<?=$value->code?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+								<a href="?mod=product&act=productdetail&productCode=<?=$value->code?>" class="add-card"><i class="flaticon-bag"></i><span>Mua hàng</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 							</div>
 						</div>
@@ -129,7 +126,7 @@
 				
 			</div>
 			<div class="text-center pt-5">
-				<button class="site-btn sb-line sb-dark">Xem thêm</button>
+				<a href="?mod=product&act=top&"><button class="site-btn sb-line sb-dark">Xem thêm</button></a>
 			</div>
 		</div>
 	</section>

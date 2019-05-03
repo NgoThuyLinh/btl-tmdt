@@ -1,7 +1,7 @@
 function initialize() {
 	var myOptions = {
 		zoom: 15,
-		center: new google.maps.LatLng(40.751412, -73.966302), //change the coordinates
+		center: new google.maps.LatLng(  20.984418,105.787949), //change the coordinates
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		scrollwheel: false,
 		mapTypeControl: false,
@@ -13,7 +13,7 @@ function initialize() {
 	var marker = new google.maps.Marker({
 		map: map,
 		icon: img_icon,
-		position: new google.maps.LatLng(40.747508, -73.966302) //change the coordinates
+		position: new google.maps.LatLng(  20.984418,105.787949) //change the coordinates
 	});
 	google.maps.event.addListener(marker, "click", function() {
 		infowindow.open(map, marker);

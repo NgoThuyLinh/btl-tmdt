@@ -27,7 +27,7 @@
 			return json_encode($cats);
 		}
 		function color_product_detail($code){
-			$sql="SELECT DISTINCT color_id , colors.name as color FROM product_details as product_detail, colors,products WHERE  color_id= colors.id AND product_detail.product_id= products.id  AND quantity > 0 AND  products.code='".$code."'";
+			$sql="SELECT DISTINCT color_id , colors.name as color,hexa FROM product_details as product_detail, colors,products WHERE  color_id= colors.id AND product_detail.product_id= products.id  AND quantity > 0 AND  products.code='".$code."'";
 			$cats= array();
 			$stmt= mysqli_query($this->conn, $sql);
 			

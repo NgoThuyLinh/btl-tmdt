@@ -55,7 +55,28 @@
 			echo json_encode([
 				'products' => $products,
 	        ]);
+	    }
+		function list(){
+			// $product_code=$_GET['productCode'];
+			$product = $this->products_model->l();
+			$colors= $this->colors_model->list();
+			$cats= $this->cats_model->list();
+			$sizes= $this->sizes_model->list();
+			$imgs= $this->imgs_model->list();
+			$colors=json_decode($colors);
+			$sizes=json_decode($sizes);
+			$cats=json_decode($cats);
+			$product=json_decode($product);
+			$imgs=json_decode($imgs);
+			require_once('view/pages/shop/category.php');
+		}
 
+		function searchgetListProduct(){
+			$ketqua = $_POST['search'];
+			$products = $this->products_model->list_product($ketqua);
+			$imgs= $this->imgs_model->list();
+			$imgs=json_decode($imgs);
+			include_once('view/pages/shop/search.php');
 		}
 	}
 ?>
