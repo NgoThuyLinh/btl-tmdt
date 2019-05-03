@@ -98,6 +98,20 @@
 			return json_encode($cats );
 			// var_dump($query);die();
 		}
+
+		function list_product($data)
+		{
+			$query="SELECT * FROM products WHERE name LIKE '%".$data."%'";
+
+			// Thá»±c thi cÃ¢u lá»‡nh truy váº¥n CSDL
+			$result= mysqli_query($this->conn,$query);
+
+			$cats=array();
+			while ($row = mysqli_fetch_object($result))  {
+				$cats[]=$row;
+			}
+			return $cats;
+		}
 		
 	}
 ?>

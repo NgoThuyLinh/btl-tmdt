@@ -88,7 +88,7 @@
 
 
 
-		    		send_email($_POST['email'],"Hán Dương",$contents,"bbbb" );
+		    		send_email($_POST['email'],"Hán Dương",$contents,"Thư đăng ký" );
 
 					header('Location: ?mod=home&act=loginform');
 

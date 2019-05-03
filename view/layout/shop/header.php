@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="public/css/owl.carousel.min.css"/>
 	<link rel="stylesheet" href="public/css/animate.css"/>
 	<link rel="stylesheet" href="public/css/style.css"/>
+	<link rel="stylesheet" href="public/css/header.css"/>
 	<style type="text/css" media="screen">
 		body{
 			font-family: Arial;
@@ -56,10 +57,17 @@
 						</a>
 					</div>
 					<div class="col-xl-6 col-lg-5">
-						<form class="header-search-form">
-							<input type="text" placeholder="Tìm kiếm">
-							<button><i class="flaticon-search"></i></button>
-						</form>
+						<!-- <form class="header-search-form"> -->
+							<form class="header-search-form" method="post" action="?mod=product&act=searchgetListProduct">
+								<div class="search1">
+								<input type="text" placeholder="Tìm kiếm" id="search" name='search'>
+								<button><i class="flaticon-search"></i></button>
+								<div id="search_info"></div>
+								</div>
+							</form>
+							<!-- <input type="text" placeholder="Tìm kiếm">
+							<button><i class="flaticon-search"></i></button> -->
+						<!-- </form> -->
 					</div>
 					<div class="col-xl-4 col-lg-5">
 						<div class="user-panel">

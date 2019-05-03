@@ -1,0 +1,29 @@
+.search1{
+    position: relative;
+}
+#choose_search {
+    position: absolute;
+    top:44px;
+    z-index:1000;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 250px;
+    overflow: auto;
+    /*border-radius: 30px;*/
+}
+.choose_phone_true {
+    border: 1px solid #ddd;
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+    cursor: pointer;
+}
+#choose_search .choose_phone_true:hover:not(.header) {
+    background-color: #eee;
+}

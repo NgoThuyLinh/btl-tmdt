@@ -47,5 +47,15 @@
 			// $imgs=json_decode($imgs);
 			echo $imgs;
 		}
+
+		function searchListProduct(){
+			$ketqua = $_GET['ketqua'];
+			// var_dump($_GET('ketqua'));die();
+			$products = $this->products_model->list_product($ketqua);
+			echo json_encode([
+				'products' => $products,
+	        ]);
+
+		}
 	}
 ?>

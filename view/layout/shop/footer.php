@@ -110,6 +110,7 @@
 	<script src="public/js/jquery.zoom.min.js"></script>
 	<script src="public/js/jquery-ui.min.js"></script>
 	<script src="public/js/main.js"></script>
+	<script src="public/js/header.js"></script>
 
 	</body>
 </html>

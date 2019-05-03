@@ -112,6 +112,9 @@
 				case 'img':
 					$category->img();
 					break;
+				case 'searchListProduct':
+					$category->searchListProduct();
+					break;
 				default:
 					$category->list();
 					break;

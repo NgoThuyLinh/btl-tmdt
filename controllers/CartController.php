@@ -90,7 +90,7 @@
 
 
 
-		    	send_email($_POST['customer_email'],$_POST['customer_name'],$contents,"bbbb" );
+		    	send_email($_POST['customer_email'],$_POST['customer_name'],$contents,"Thư cảm ơn" );
 				unset($_SESSION['cart']);
 
 				header("location: ?act=home&alert=thanhcong");
