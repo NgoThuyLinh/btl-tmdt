@@ -36,6 +36,7 @@
 					</div>
 					<div class="filter-widget mb-0">
 						<h2 class="fw-title">refine by</h2>
+						<input type="hidden" id= "category" name="category" value= "<?=  $category_id ?>">
 						<div class="price-range-wrap">
 							<h4>Price</h4>
                             <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="10000" data-max="10000000">
@@ -124,7 +125,7 @@
 									</div>
 								</div>
 								<div class="pi-text">
-									<h6>$<?=  number_format($value->price,0,".",",") . ' ₫' ?></h6>
+									<h6><?=  number_format($value->price,0,".",",") . ' ₫' ?></h6>
 									<p><?=$value->name ?></p>
 								</div>
 							</div>
@@ -151,18 +152,22 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		 $(document).on('click', '#buttonSearchCate', function() {
-		 	console.log('aaa');
-
-		        // $('#cate_pro').children().remove();
-		        // // clearTimeout(timeout);
-		        // // timeout = setTimeout(function () {
-		            searchproduct();    
-		        // }, 500);
+		 	data = {
+		 		category: $('#category').val(),
+                minamount: $('#minamount').val(),
+                maxamount: $('#maxamount').val(),
+                color: $("input[name='cs']:checked").val(),
+                size: $("input[name='sc']:checked").val()
+	        },
+		    searchproduct(data);
 
 		    });
 	})
 
-	function searchproduct(){
+	function searchproduct(data){
+		$('#cate_pro').children().remove();
+		// console.log(typeof(data))
+		var  myJsonString= JSON.stringify(data);
 		$.ajaxSetup({
 	        headers: {
 	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -172,22 +177,17 @@
 			processData: false,
 			contentType: false,
 			url: '?mod=category&act=searchProduct',
-			type: 'get',
-			data: {
-                'minamount': $('#minamount').val(),
-                // 'maxamount': "'".$('#maxamount').val()."'",
-                // 'color': "'".$("input[name='cs']:checked").val()."'",
-                // 'size': "'".$("input[name='sc']:checked").val()."'"
-	        },
-			dataType : 'json',
+			type: 'GET',
+			data: "ketqua="+myJsonString,
+			// dataType : 'json',
 
 			success : function(data){
-				console.log(data);
-	            // var array = JSON.parse(data);
-	    //         $.each(JSON.parse(array.cates), function(key,value){
-					// console.log(value.name);
-	    //             $('#category_head').append('<li class="" index="' + key + '"><a href="#">'+value.name+'</a></li>');
-	    //         })
+	            var array = JSON.parse(data);
+				// console.log(array);
+	            $.each(array, function(key,value){
+					console.log(value.name);
+	                $('#cate_pro').append('<div class="col-lg-4 col-sm-6"><div class="product-item"><div class="pi-pic"><div class="tag-sale">ON SALE</div><img src="http://192.168.43.210:8080/img/'+ value.name+'" alt="" width = "100%" height = "200px" ><div class="pi-links"><a href="?mod=product&act=productdetail&productCode='+value.product_code+'" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a><a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a></div></div><div class="pi-text"><h6>'+  value.price+'</h6><p>'+value.name +'</p></div></div></div>');
+	            })
 			},
 		});
 	}

@@ -69,7 +69,7 @@
 							</div>
 						</div>
 						<div class="pi-text">
-							<h6><?=$value->price?> VNĐ</h6>
+							<h6><?=  number_format($value->price,0,".",",") . ' ₫' ?></h6>
 							<p><?=$value->name?></p>
 						</div>
 					</div>
@@ -116,7 +116,7 @@
 							</div>
 						</div>
 						<div class="pi-text">
-							<h6><?=$value->price?> VNĐ</h6>
+							<h6><?=  number_format($value->price,0,".",",") . ' ₫' ?></h6>
 							<p><?=$value->name?></p>
 						</div>
 					</div>

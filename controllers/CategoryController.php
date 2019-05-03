@@ -36,10 +36,12 @@
 		}
 
 		function searchProduct(){
-			$s = $_GET['minamount'];
-			// echo $s; die();
+			// $category_id=$_GET['categoryId'];
+			$data = json_decode($_GET['ketqua']);
+			$products = $this->products_model->searchProduct($data);
 
-			var_dump($s);die();
+			echo $products;
+			// var_dump($products);die();
 		}	
 	}
 ?>

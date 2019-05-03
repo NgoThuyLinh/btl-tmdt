@@ -38,5 +38,6 @@
 			$imgs=json_decode($imgs);
 			require_once('view/pages/shop/product-detail.php');
 		}
+
 	}
 ?>

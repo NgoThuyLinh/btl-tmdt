@@ -8,6 +8,7 @@
 	require_once "models/Order.php";
 	require_once "models/Image.php";
 	require_once "models/Address.php";
+	include_once('public/guimail/email/email_function.php');
 	
 	class CartController
 	{
@@ -84,7 +85,14 @@
 			var_dump($data);
 			$result=$this->order_model->createOrder($data);
 			if ($result) {
+				$contents = "Cảm ơn bạn đã mua hàng";  
+		    			 
+
+
+
+		    	send_email($_POST['customer_email'],$_POST['customer_name'],$contents,"bbbb" );
 				unset($_SESSION['cart']);
+
 				header("location: ?act=home&alert=thanhcong");
 			}else{
 				header("location: ?mod=order&act=checkout&alert=fail");
