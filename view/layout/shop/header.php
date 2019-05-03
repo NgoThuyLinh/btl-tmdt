@@ -72,11 +72,11 @@
 					<div class="col-xl-4 col-lg-5">
 						<div class="user-panel">
 							<div class="up-item">
-								<?php if(!isset($_SESSION['user'])) { ?>
+								<?php if(!isset($_SESSION['customer'])) { ?>
 									<i class="flaticon-profile"></i>
 									<a href="?mod=home&act=loginform">Đăng nhập</a>
 								<?php } else{ ?>
-									<p><?= $_SESSION['user'][0]->name?></p>
+									<p><?= $_SESSION['customer'][0]->name?></p>
 								<?php } ?>
 							</div>
 							<div class="up-item">
@@ -91,7 +91,7 @@
 								</div>
 								<a href="?mod=cart">Giỏ hàng</a>
 							</div>
-							<?php if(isset($_SESSION['user'])) { ?>
+							<?php if(isset($_SESSION['customer'])) { ?>
 								<div class="up-item" style="margin-left: 20px;cursor: pointer;"><i class="fab fa-accusoft"></i><a href="?mod=home&act=logout">Đăng xuất</a></div>
 							<?php } else { ?>
 								<div class="up-item" style="margin-left: 18px;cursor: pointer;"><i class="fab fa-accusoft"></i><a href="?mod=home&act=signup">Đăng ký</a></div>

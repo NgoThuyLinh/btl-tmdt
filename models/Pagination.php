@@ -9,7 +9,7 @@ class Pagination
      */
     private $config = [
         'total' => 0, // tổng số mẩu tin
-        'limit' => 0, // số mẩu tin trên một trang
+        'limit' => 8, // số mẩu tin trên một trang
         'full' => true, // true nếu hiện full số page, flase nếu không muốn hiện false
         'querystring' => 'page' // GET id nhận page
     ];
