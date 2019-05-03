@@ -117,10 +117,16 @@
 
 							<div class="product-item">
 								<div class="pi-pic">
-									<div class="tag-sale">ON SALE</div>
-									<img src="http://192.168.43.210:8080/img/<?= $value->img?>" alt="" width = "100%" height = "200px" >
+									<div class="tag-sale">GIẢM GIÁ</div>
+									<?php foreach ($imgs as $k) {
+										if ($k->product_id == $value->product_id) {
+									
+									?>
+									<img src="<?=$k->image?>" alt="">
+									<?php break;} }?>
+									<!-- <img src="http://192.168.43.210:8080/img/<?= $value->img?>" alt="" width = "100%" height = "200px" > -->
 									<div class="pi-links">
-										<a href="?mod=product&act=productdetail&productCode=<?=$value->product_code?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+										<a href="?mod=product&act=productdetail&productCode=<?=$value->code?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 									</div>
 								</div>
@@ -136,7 +142,7 @@
 						 ?>
 						
 						<div class="text-center w-100 pt-3">
-							<button class="site-btn sb-line sb-dark">LOAD MORE</button>
+							<button class="site-btn sb-line sb-dark">XEM THÊM</button>
 						</div>
 					</div>
 				</div>

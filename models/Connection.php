@@ -8,7 +8,7 @@
 			$servername="localhost";
 			$username="root";
 			$password="";
-			$dbname="tmdt-shop";
+			$dbname="thuongmaidientu";
 			$this->conn= mysqli_connect($servername,$username,$password,$dbname);
 			$this->conn->set_charset('utf8');
 			if (!$this->conn) {

@@ -48,20 +48,21 @@
 			</ul>
 			<div class="row">
 				<?php 
-					if (isset($products)) {
-						foreach ($products as $key => $value) {
+					if (isset($product_news)) {
+						foreach ($product_news as $key => $value) {
 						
 				 ?>
 				<div class="col-lg-3 col-sm-6">
 					<div class="product-item">
 						<div class="pi-pic">
+							<div class="tag-new">Mới</div>
 							<?php 
 								foreach ($imgs as $k) {
 									if ($k->product_id== $value->id) {
 										
 									
 							 ?>
-								<img src="<?=$k->image?>" alt="" title="<?=$k->code?>" width = "270px" height = "270px">
+								<img src="<?=$k->image?>" alt="" title="<?=$value->code?>" width = "270px" height = "270px">
 							<?php break;}} ?>
 							<div class="pi-links">
 								<a href="?mod=product&act=productdetail&productCode=<?=$value->code?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
@@ -81,7 +82,7 @@
 				
 			</div>
 			<div class="text-center pt-5">
-				<button class="site-btn sb-line sb-dark">Nhiều hơn</button>
+				<button class="site-btn sb-line sb-dark">Xem thêm</button>
 			</div>
 		</div>
 	</section>
@@ -128,7 +129,7 @@
 				
 			</div>
 			<div class="text-center pt-5">
-				<button class="site-btn sb-line sb-dark">Nhiều hơn</button>
+				<button class="site-btn sb-line sb-dark">Xem thêm</button>
 			</div>
 		</div>
 	</section>

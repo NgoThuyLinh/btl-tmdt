@@ -54,5 +54,16 @@
 			} while (mysqli_next_result($this->conn));
 			return json_encode($cats);
 		}
+		function img($code,$color_id){
+			$sql="SELECT DISTINCT product_images.id as id,image FROM products, product_images,product_details WHERE product_details.product_image_id= product_images.id AND products.id=product_details.product_id  AND  products.code='".$code."' AND  color_id=".$color_id;
+			$cats= array();
+			$stmt= mysqli_query($this->conn, $sql);
+			do {
+			    while ($row = mysqli_fetch_array($stmt)){
+			       $cats[] = $row; 
+			    }
+			} while (mysqli_next_result($this->conn));
+			return json_encode($cats);
+		}
 	}
  ?>

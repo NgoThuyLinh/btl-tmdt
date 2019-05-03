@@ -5,10 +5,9 @@
 <!-- Page info -->
 	<div class="page-top-info">
 		<div class="container">
-			<h4>Category PAge</h4>
+			<h4>Chi tiết sản phẩm</h4>
 			<div class="site-pagination">
-				<a href="">Trang chủ</a> /
-				<a href="">Shop</a>
+				<a href="">Trang chủ</a> / Sản phẩm
 			</div>
 		</div>
 	</div>
@@ -31,20 +30,13 @@
 						<img src="<?=$k->image?>" alt="" width = "100%" height = "600px" >
 						<?php break;}} ?>
 					</div>
-					<!-- <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
-						<div class="product-thumbs-track">
-							<div class="pt active" data-imgbigurl="publics/img/single-product/1.jpg"><img src="publics/img/single-product/thumb-1.jpg" alt=""></div>
-							<div class="pt" data-imgbigurl="publics/img/single-product/2.jpg"><img src="publics/img/single-product/thumb-2.jpg" alt=""></div>
-							<div class="pt" data-imgbigurl="publics/img/single-product/3.jpg"><img src="publics/img/single-product/thumb-3.jpg" alt=""></div>
-							<div class="pt" data-imgbigurl="publics/img/single-product/4.jpg"><img src="publics/img/single-product/thumb-4.jpg" alt=""></div>
-						</div>
-					</div> -->
+					
 				</div>
 				<div class="col-lg-6 product-details">
 					<h2 class="p-title"><?=$product[0]->name?></h2>
-					<h3 class="p-price">$<?=$product[0]->price?></h3>
-					<h4 class="p-stock">Available:<span><?php if ($product[1]==true ) { echo "In Stock";
-					}else{echo "Not in stock";}?></span></h4>
+					<h3 class="p-price"><?=$product[0]->price?> đ</h3>
+					<h4 class="p-stock">Tình trạng:<span><?php if ($product[1]==true ) { echo "Còn hàngs";
+					}else{echo "Hết hàng";}?></span></h4>
 					<div class="p-rating">
 						<i class="fa fa-star-o"></i>
 						<i class="fa fa-star-o"></i>
@@ -92,7 +84,7 @@
 						</div>
 						
 						<div class="quantity">
-							<p>Quantity</p>
+							<p>Số lượng mua</p>
 	                        <div class="pro-qty"><input type="text" value="1" name="quantity_buy"></div>
 	                    </div>
 						<button type="submit" class="site-btn" name="order">Mua hàng</button>
@@ -101,37 +93,34 @@
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
 							<div class="panel-header" id="headingOne">
-								<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">information</button>
+								<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Thông tin mô tả</button>
 							</div>
 							<div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 								<div class="panel-body">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
-									<p>Approx length 66cm/26" (Based on a UK size 8 sample)</p>
-									<p>Mixed fibres</p>
-									<p>The Model wears a UK size 8/ EU size 36/ US size 4 and her height is 5'8"</p>
+									<p><?=$product[0]->description?></p>
 								</div>
 							</div>
 						</div>
 						<div class="panel">
 							<div class="panel-header" id="headingTwo">
-								<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">care details </button>
+								<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Thanh toán qua thẻ </button>
 							</div>
 							<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 								<div class="panel-body">
-									<img src="publics/img/cards.png" alt="">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+									<img src="public/img/cards.png" alt="">
+									<p>Những ngân hàng quý khách có thể thanh toán bằng thẻ</p>
 								</div>
 							</div>
 						</div>
 						<div class="panel">
 							<div class="panel-header" id="headingThree">
-								<button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">shipping & Returns</button>
+								<button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Vận chuyển và giao hàng</button>
 							</div>
 							<div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
 								<div class="panel-body">
-									<h4>7 Days Returns</h4>
-									<p>Cash on Delivery Available<br>Home Delivery <span>3 - 4 days</span></p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+									<h4>7 ngày trả hàng</h4>
+									<p>Hàng có sẵn trong kho<br>Vận chuyển <span>3 - 4 ngày</span></p>
+									<p>Quý khách vui lòng chờ điện thoại để nhận hàng và kiểm tra  sản phẩm khi nhận. Nếu có hỏng hóc vui lòng báo cho người vận chuyển</p>
 								</div>
 							</div>
 						</div>
@@ -156,3 +145,41 @@
 		echo "<script type='text/javascript'>alert('Số lượng mua quá lớn');</script>";
 	}
 ?>
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		var color_id;
+		var result;
+		$('input[name="color_id"]').change(function(e) { 
+
+		    color_id= $(this).val();
+		   $.ajax({
+		   		url: "?mod=product&act=img",
+		   		method: "GET",
+		   		data:{
+		   			'color_id': color_id,
+		   			'code': '<?=$_GET['productCode']?>'
+		   		},
+		   		success: function(a){
+		   			result = JSON.parse(a);
+			    	console.log(result)
+			    	result.forEach(function(element) {
+					  	console.log(element);
+					  	$(".product-pic-zoom img").attr("src", element.image);
+					});
+			  	}
+			});
+
+
+		});
+		var size_id;
+		$('input[name="size_id"]').change(function(e) { 
+
+		    size_id =$(this).val(); 
+
+
+		});
+
+	})
+</script>

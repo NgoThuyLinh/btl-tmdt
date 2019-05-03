@@ -27,6 +27,9 @@
 		function detail(){
 			$product_code=$_GET['productCode'];
 			$product = $this->products_model->find($product_code);
+			$product_tops = $this->products_model->list_top();
+			$product_tops= json_decode($product_tops);
+			
 			$colors= $this->colors_model->color_product_detail($product_code);
 			$cats= $this->cats_model->list();
 			$sizes= $this->sizes_model->size_product_detail($product_code);
@@ -38,6 +41,11 @@
 			$imgs=json_decode($imgs);
 			require_once('view/pages/shop/product-detail.php');
 		}
-
+		function img(){
+			$imgs= $this->imgs_model->img($_GET['code'],$_GET['color_id']);
+			
+			// $imgs=json_decode($imgs);
+			echo $imgs;
+		}
 	}
 ?>
