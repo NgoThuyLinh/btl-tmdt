@@ -31,14 +31,14 @@
 						</div>
 						<div class="row address-inputs">
 							<div class="col-md-10">
-								<?php if(!isset($_SESSION['user'])) { ?>
+								<?php if(!isset($_SESSION['customer'])) { ?>
 									<input type="text" placeholder="Tên khách hàng" name="customer_name">
 									<input type="email" placeholder="Email" name="customer_email">
 									<input type="text" placeholder="Số điện thoại" name="customer_phone" >	
 								<?php } else{ ?>
-									<input type="text" placeholder="Tên khách hàng" name="customer_name" value="<?= $_SESSION['user'][0]->name  ?>">
-									<input type="email" placeholder="Email" name="customer_email" value="<?= $_SESSION['user'][0]->email  ?>">
-									<input type="text" placeholder="Số điện thoại" name="customer_phone" value="<?= $_SESSION['user'][0]->phone  ?>">
+									<input type="text" placeholder="Tên khách hàng" name="customer_name" value="<?= $_SESSION['customer'][0]->name  ?>">
+									<input type="email" placeholder="Email" name="customer_email" value="<?= $_SESSION['customer'][0]->email  ?>">
+									<input type="text" placeholder="Số điện thoại" name="customer_phone" value="<?= $_SESSION['customer'][0]->phone  ?>">
 								<?php } ?>
 								<input type="text" placeholder="Ghi chú" name="description">
 							</div>

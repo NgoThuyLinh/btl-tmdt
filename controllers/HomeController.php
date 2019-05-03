@@ -55,7 +55,7 @@
 			if (count($result)<1) {
 				header("location: ?mod=home&act=loginform&alert=fail");
 			}else{
-				$_SESSION['user']=$result;
+				$_SESSION['customer']=$result;
 				header("location: ?act=home");
 			}
 		}
@@ -99,7 +99,7 @@
 					if (count($result)<1) {
 						header("location: ?mod=home&act=loginform&alert=fail");
 					}else{
-						$_SESSION['user']=$result;
+						$_SESSION['customer']=$result;
 						header("location: ?act=home");
 					}
 

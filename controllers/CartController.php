@@ -100,7 +100,7 @@
 		}
 		function checkout(){
 
-			// if (isset($_SESSION['user'])) {
+			// if (isset($_SESSION['customer'])) {
 				$cats= $this->cats_model->list();
 				$add= $this->add_model->address();
 				$cats= json_decode($cats);
